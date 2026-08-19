@@ -222,26 +222,27 @@ function pageHero(kicker, title, text, tone = "") {
 
 function home() {
   return `
-  <section class="hero-home" data-media="hero-media">
+  <section class="hero-home reveal" data-media="hero-media" data-video-ready="true">
+    <div class="hero-home__video" aria-hidden="true"></div>
     <img class="hero-home__watermark" src="assets/img/official-logo.png" alt="">
-    <div class="wrap hero-home__inner">
-      <p class="kicker kicker--center">Physician-led institute · Reno, Nevada</p>
-      <h1>Monti Institute of<br><em>Neuro Aesthetics</em></h1>
+    <div class="wrap hero-home__inner hero-home__layout">
+      <div class="hero-home__copy"><p class="kicker">Physician-led institute · Reno, Nevada</p>
+      <h1>Where neurology meets aesthetics. Care that is personal by design.</h1>
       <p class="hero-home__lead">Physician-led neurological and aesthetic medicine — designed to restore comfort, confidence, and natural vitality.</p>
       <p class="hero-home__sub">Specialized care for migraine, headache disorders, neurological pain, facial aesthetics, and regenerative medicine.</p>
-      <div class="actions"><a class="button button--primary" href="${CONFIG.bookingUrl}">Schedule a Consultation</a><a class="button button--secondary" href="#care">Explore Our Services</a></div>
+      <div class="actions"><a class="button button--primary" href="${CONFIG.bookingUrl}">Schedule a Consultation</a><a class="button button--secondary" href="#care">Explore Our Services</a></div></div>
+      <div class="hero-home__media">${mediaSlot("media-hero-interior","Monti Institute interior media slot","assets/img/Vassar.PNG")}</div>
     </div>
   </section>
-  <section class="approach"><div class="wrap"><p class="kicker kicker--center">The Monti Approach</p><h2>Anatomy. Evidence. Precision. Restraint.</h2><div class="approach__grid">${approachItem("Anatomy","Deep understanding of structure and function guides every decision.")}${approachItem("Evidence","Treatments are rooted in science and documented indications.")}${approachItem("Precision","Advanced training, experience, and careful treatment planning.")}${approachItem("Restraint","Careful calibration and the confidence to know when less is more.")}</div></div></section>
-  <section class="duality" id="care"><div class="wrap"><div class="duality__intro"><p class="kicker kicker--center">Neurology × Aesthetics</p><h2>Two disciplines. One standard of care.</h2><p>Monti brings neurological medicine and physician-led aesthetics into one standard: anatomy, evidence, precision, and restraint.</p></div><div class="duality__grid"><article>${mediaSlot("media-neurology","Neurological medicine media slot")}<p class="kicker">Neurological Medicine</p><h3>Migraine, headache, and neurological care.</h3><ul>${["Migraine & Headache","Neurological Pain","Diagnostic Neurology","Advanced / Interventional Therapies"].map(li).join("")}</ul><a class="text-link" href="neurological-medicine.html">Explore Neurological Care</a></article><article>${mediaSlot("media-aesthetics","Aesthetic medicine media slot")}<p class="kicker">Aesthetic Medicine</p><h3>Facial balance through physician-led restraint.</h3><ul>${["Facial Balance","Injectables","Regenerative Aesthetics","Energy-Based Treatments"].map(li).join("")}</ul><a class="text-link" href="aesthetic-medicine.html">Explore Aesthetic Medicine</a></article></div></div></section>
-  <section class="difference"><div class="wrap difference__inner"><div><p class="kicker">The Monti Difference</p><h2>Precision over volume.</h2><p>Longer appointments, individualized planning, clinical continuity, and physician-led decisions keep care focused and considered.</p></div><div class="difference__list">${["Longer Appointments","Individualized Evaluation","Clinical Continuity","Physician-Led Decisions"].map((x,i)=>`<article><span>0${i+1}</span><h3>${x}</h3><p>${["Time to understand the full history, prior treatments, and what matters now.","Plans built from anatomy, clinical history, goals, and documented reasoning.","Follow-up that evaluates response and recalibrates care over time.","A smaller practice model centered on direct clinical oversight and restraint."][i]}</p></article>`).join("")}</div></div></section>
-  <section class="founder"><div class="wrap founder__grid">${mediaSlot("media-founder","Dr. Ryan Monti portrait media slot","assets/img/dr-monti.jpg")}<div><p class="kicker">The Founder</p><h2>Ryan Monti, MD</h2><p>Founder and medical director of Monti Institute of Neuro Aesthetics, Dr. Monti bridges migraine medicine, interventional neurological care, and medical aesthetics through direct physician reasoning.</p><p class="credentials">Board-Certified Internal Medicine · ACP · NBPAS · FAACM · Assoc. Prof. MCG</p><a class="button button--primary" href="dr-monti.html">Meet Dr. Monti</a></div></div></section>
-  <section class="infusion-feature"><div class="wrap">${mediaSlot("media-infusion","Infusion suite media slot")}<div class="infusion-feature__copy"><p class="kicker">Infusion Therapy</p><h2>Optimize. Recover. Restore.</h2><p>Private, low-stimulation infusion therapy with physician oversight, clinical monitoring, and individualized protocols.</p><div class="infusion-framework">${infusionFramework.map(([t,d])=>`<article><h3>${t}</h3><p>${d}</p></article>`).join("")}</div><a class="text-link" href="infusion-therapy.html">Explore Infusion Therapy</a></div></div></section>
-  <section class="providers-preview"><div class="wrap"><div class="providers-preview__intro"><p class="kicker">The Monti Team</p><h2>Meet Our Care Team.</h2><p>Meet the clinicians who bring the Monti approach to every area of care.</p></div>${providerGrid(providers.slice(1,5))}<a class="button button--secondary" href="providers.html">View All Providers</a></div></section>
-  <section class="experience"><div class="wrap experience__grid"><div>${mediaSlot("media-patient-experience","Patient experience media slot")}</div><div><p class="kicker">Patient Experience</p><h2>Care should feel unhurried.</h2><p>Monti's current philosophy emphasizes longer appointments, individualized planning, continuity, thoughtful care, and a private clinical environment.</p></div></div></section>
-  <section class="concierge-cta"><div class="wrap"><p class="kicker">Digital Concierge</p><h2>Not sure where to begin?</h2><p>We'll help you find the right care pathway without replacing a clinical consultation.</p><button class="button button--primary" type="button" data-open-concierge>Find My Care Path</button></div></section>
-  <section class="shop-preview"><div class="wrap"><div class="shop-preview__intro"><p class="kicker">The Monti Edit</p><h2>Physician-selected wellness and skincare.</h2><p>Curated partner dispensaries that extend appropriate care beyond the Institute.</p></div><div class="shop-preview__grid">${["Fullscript Dispensary","SkinCeuticals Dispensary","Home Protocols"].map((title,i)=>`<article>${mediaSlot("media-shop-product","Product media slot")}<h3>${title}</h3><p>${["Practitioner-grade supplements through the practice partner account.","Clinical skincare through an authorized physician account.","Recommended and adjusted as treatment plans evolve."][i]}</p></article>`).join("")}</div><a class="button button--secondary" href="shop.html">Visit the Shop</a></div></section>
-  <section class="access"><div class="wrap access__grid">${[["Patient Portal","Boulevard scheduling and patient access.",CONFIG.bookingUrl],["Insurance & Payment","Neurology insurance, private-pay aesthetics, and financing details.", "insurance-payment.html"],["Financing","Cherry financing is referenced by current content.", "insurance-payment.html"],["Contact","Address, phone, email, parking, and scheduling.", "contact.html"]].map(([t,d,h])=>`<a href="${h}"><h3>${t}</h3><p>${d}</p></a>`).join("")}</div></section>
+  <section class="duality reveal" id="care"><div class="wrap"><div class="duality__intro"><p class="kicker kicker--center">Neurology × Aesthetics</p><h2>Two disciplines. One standard of care.</h2><p>Monti brings neurological medicine and physician-led aesthetics into one standard: anatomy, evidence, precision, and restraint.</p></div><div class="duality__split"><article class="duality-panel duality-panel--neuro">${mediaSlot("media-neurology","Neurological medicine media slot")}<div><p class="kicker">Neurology</p><h3>Migraine, headache, and neurological care.</h3><ul>${["Migraine & Headache","Neurological Pain","Diagnostic Neurology","Advanced Therapies"].map(li).join("")}</ul><a class="text-link" href="neurological-medicine.html">Explore Neurological Care</a></div></article><span class="duality__mark">${mark()}</span><article class="duality-panel duality-panel--aesthetic">${mediaSlot("media-aesthetics","Aesthetic medicine media slot")}<div><p class="kicker">Aesthetics</p><h3>Facial balance through physician-led restraint.</h3><ul>${["Facial Balance","Injectables","Regenerative Aesthetics","Energy-Based Treatments"].map(li).join("")}</ul><a class="text-link" href="aesthetic-medicine.html">Explore Aesthetic Medicine</a></div></article></div></div></section>
+  <section class="approach reveal"><div class="wrap"><p class="kicker kicker--center">The Monti Approach</p><h2>Anatomy. Evidence. Precision. Restraint.</h2><div class="approach__grid">${approachItem("Anatomy","Deep understanding of structure and function guides every decision.")}${approachItem("Evidence","Treatments are rooted in science and documented indications.")}${approachItem("Precision","Advanced training, experience, and careful treatment planning.")}${approachItem("Restraint","Careful calibration and the confidence to know when less is more.")}</div></div></section>
+  <section class="difference reveal"><div class="wrap difference__inner"><div><p class="kicker">The Monti Difference</p><h2>Precision over volume.</h2><p>Longer appointments, individualized planning, clinical continuity, and physician-led decisions keep care focused and considered.</p></div><div class="difference__list">${["Longer Appointments","Individualized Evaluation","Clinical Continuity","Physician-Led Decisions"].map((x,i)=>`<article><span>0${i+1}</span><h3>${x}</h3><p>${["Time to understand the full history, prior treatments, and what matters now.","Plans built from anatomy, clinical history, goals, and documented reasoning.","Follow-up that evaluates response and recalibrates care over time.","A smaller practice model centered on direct clinical oversight and restraint."][i]}</p></article>`).join("")}</div></div></section>
+  <section class="founder founder-team reveal"><div class="wrap founder-team__grid"><div class="founder__media">${mediaSlot("media-founder","Dr. Ryan Monti portrait media slot","assets/img/dr-monti.jpg")}</div><div class="founder-team__bio"><p class="kicker">The Founder</p><h2>Ryan Monti, MD</h2><p>Founder and medical director of Monti Institute of Neuro Aesthetics, Dr. Monti bridges migraine medicine, interventional neurological care, and medical aesthetics through direct physician reasoning.</p><p class="credentials">Board-Certified Internal Medicine · ACP · NBPAS · FAACM · Assoc. Prof. MCG</p><a class="button button--primary" href="dr-monti.html">Meet Dr. Monti</a></div><aside class="founder-team__team"><p class="kicker">The Monti Team</p><h2>Meet the people behind your care.</h2><p>Meet the clinicians who bring the Monti approach to every area of care.</p>${teamMiniGrid(providers.slice(1,5))}<a class="text-link" href="providers.html">Meet the Full Team</a></aside></div></section>
+  <section class="infusion-feature reveal"><div class="wrap">${mediaSlot("media-infusion","Infusion suite media slot")}<div class="infusion-feature__copy"><p class="kicker">Infusion Therapy</p><h2>Restore from within.</h2><p>Private, low-stimulation infusion therapy with physician oversight, clinical monitoring, and individualized protocols.</p><div class="infusion-tabs" role="tablist" aria-label="Infusion therapy categories">${infusionFramework.map(([t],i)=>`<button type="button" role="tab" aria-selected="${i === 0}" aria-controls="infusion-panel" data-infusion-tab="${i}">${t}</button>`).join("")}</div><div class="infusion-panel" id="infusion-panel" role="tabpanel" aria-live="polite"><h3>${infusionFramework[0][0]}</h3><p>${infusionFramework[0][1]}</p></div><a class="text-link" href="infusion-therapy.html">Explore Infusion Therapy</a></div></div></section>
+  <section class="experience reveal"><div class="wrap experience__grid"><div>${mediaSlot("media-patient-experience","Patient experience media slot")}</div><div><p class="kicker">The Experience</p><h2>Care should feel unhurried.</h2><p>Monti's current philosophy emphasizes longer appointments, individualized planning, continuity, thoughtful care, and a private clinical environment.</p><div class="experience__attributes"><span>Private</span><span>Considered</span><span>Unhurried</span><span>Individualized</span></div><a class="text-link text-link--light" href="the-institute.html">Visit the Institute</a></div></div></section>
+  <section class="concierge-cta reveal"><div class="wrap"><p class="kicker">Digital Concierge</p><h2>Not sure where to begin?</h2><p>We'll help you find the right care pathway without replacing a clinical consultation.</p><button class="button button--primary" type="button" data-open-concierge>Find My Care Path</button></div></section>
+  <section class="shop-preview reveal"><div class="wrap"><div class="shop-preview__intro"><p class="kicker">The Monti Edit</p><h2>Selected for continued care.</h2><p>Curated partner dispensaries that extend appropriate care beyond the Institute.</p><a class="button button--secondary" href="shop.html">Visit the Shop</a></div><div class="shop-preview__grid">${["Fullscript Dispensary","SkinCeuticals Dispensary","Home Protocols"].map((title,i)=>`<article>${mediaSlot("media-shop-product","Product media slot")}<h3>${title}</h3><p>${["Practitioner-grade supplements through the practice partner account.","Clinical skincare through an authorized physician account.","Recommended and adjusted as treatment plans evolve."][i]}</p></article>`).join("")}</div></div></section>
+  <section class="access reveal"><div class="wrap"><p class="kicker">Patient Access</p><div class="access__grid">${[["Patient Portal","Boulevard scheduling and patient access.",CONFIG.bookingUrl],["Insurance & Payment","Neurology insurance, private-pay aesthetics, and financing details.", "insurance-payment.html"],["Financing","Cherry financing is referenced by current content.", "insurance-payment.html"],["Contact","Address, phone, email, parking, and scheduling.", "contact.html"]].map(([t,d,h])=>`<a href="${h}"><h3>${t}</h3><p>${d}</p></a>`).join("")}</div></div></section>
   ${finalCta()}
   `;
 }
@@ -257,8 +258,12 @@ function providerGrid(list) {
   return `<div class="provider-grid">${list.map(p => `<article class="provider-card"><a href="provider-${p.slug}.html">${mediaSlot("media-provider", `${p.name} portrait`, p.image)}<div><p class="kicker">${p.role}</p><h3>${p.name}</h3><p>${p.credentials}</p><span>View Profile</span></div></a></article>`).join("")}</div>`;
 }
 
+function teamMiniGrid(list) {
+  return `<div class="team-mini-grid">${list.map(p => `<a href="provider-${p.slug}.html">${mediaSlot("media-provider", `${p.name} portrait`, p.image)}<span><strong>${p.name}</strong><small>${p.credentials}</small></span></a>`).join("")}</div>`;
+}
+
 function finalCta() {
-  return `<section class="final-cta"><div class="wrap"><h2>Begin Your Care.</h2><div class="final-cta__links"><a href="${CONFIG.bookingUrl}">Neurological Consultation</a><a href="${CONFIG.bookingUrl}">Aesthetic Consultation</a><a href="${CONFIG.bookingUrl}">Infusion Therapy</a><a href="${CONFIG.phoneHref}">Call Monti Institute</a></div></div></section>`;
+  return `<section class="final-cta"><div class="wrap"><p class="kicker kicker--center">Begin</p><h2>Begin your care.</h2><a class="button button--primary" href="${CONFIG.bookingUrl}">Schedule a Consultation</a><div class="final-cta__links"><a href="neurological-medicine.html">Neurology</a><a href="aesthetic-medicine.html">Aesthetics</a><a href="infusion-therapy.html">Infusion</a><a href="${CONFIG.phoneHref}">Call ${CONFIG.phoneDisplay}</a></div></div></section>`;
 }
 
 function neuroPage() {
@@ -347,7 +352,7 @@ function accessNote() { return block("Insurance & Access", "Insurance is accepte
 function faq(q,a) { return `<details><summary>${q}</summary><p>${a}</p></details>`; }
 
 function conciergeModal() {
-  return `<dialog class="concierge-modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button><p class="kicker">Digital Concierge</p><h2>Find the right starting point.</h2><div class="concierge-options">${[["Neurological Medicine","Migraine, headache, or neurological pain."],["Aesthetic Medicine","Facial balance, skin quality, or injectables."],["Infusion Therapy","Hydration, recovery, restore, or migraine rescue."],["Integrated Care","Exploring more than one pathway."]].map(([t,d])=>`<button type="button" data-path="${t}"><strong>${t}</strong><span>${d}</span></button>`).join("")}</div><p class="concierge-result" aria-live="polite">This guide supports navigation and does not provide medical triage.</p></form></dialog>`;
+  return `<dialog class="concierge-modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button><div class="concierge-progress"><span>Step 1 of 2</span><b></b></div><p class="kicker">Digital Concierge</p><h2>Find the right starting point.</h2><p class="concierge-copy">This guide supports navigation and does not provide medical triage.</p><div class="concierge-options">${[["Neurological Medicine","Migraine, headache, or neurological pain."],["Aesthetic Medicine","Facial balance, skin quality, or injectables."],["Infusion Therapy","Hydration, recovery, restore, or migraine rescue."],["Integrated Care","Exploring more than one pathway."]].map(([t,d])=>`<button type="button" data-path="${t}"><strong>${t}</strong><span>${d}</span></button>`).join("")}</div><div class="concierge-actions"><button class="button button--secondary" value="cancel">Back</button><a class="button button--primary concierge-result" href="${CONFIG.bookingUrl}" aria-live="polite">Continue</a></div></form></dialog>`;
 }
 
 const pages = {
@@ -377,6 +382,10 @@ for (const p of providers) pages[`provider-${p.slug}`] = () => pageHero(p.role, 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page || "home";
   document.getElementById("site-shell").innerHTML = shell((pages[page] || home)());
+  const header = document.querySelector(".site-header");
+  const setHeaderState = () => document.body.classList.toggle("is-scrolled", window.scrollY > 18);
+  setHeaderState();
+  window.addEventListener("scroll", setHeaderState, { passive: true });
   const menu = document.querySelector(".menu-toggle");
   menu?.addEventListener("click", () => {
     const open = document.body.classList.toggle("menu-open");
@@ -390,10 +399,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   document.querySelector("[data-open-concierge]")?.addEventListener("click", () => document.querySelector(".concierge-modal")?.showModal());
+  const infusionDescriptions = infusionFramework;
+  const infusionPanel = document.querySelector(".infusion-panel");
+  document.querySelectorAll("[data-infusion-tab]").forEach(button => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.infusionTab);
+      document.querySelectorAll("[data-infusion-tab]").forEach(tab => tab.setAttribute("aria-selected", String(tab === button)));
+      if (infusionPanel) infusionPanel.innerHTML = `<h3>${infusionDescriptions[index][0]}</h3><p>${infusionDescriptions[index][1]}</p>`;
+    });
+  });
+  const revealItems = document.querySelectorAll(".reveal, .approach__grid article, .provider-card, .shop-preview article");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    }), { threshold: 0.14 });
+    revealItems.forEach(item => observer.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add("is-visible"));
+  }
   document.querySelectorAll("[data-path]").forEach(button => {
     button.addEventListener("click", () => {
       const text = button.dataset.path;
-      document.querySelector(".concierge-result").textContent = `${text} is a reasonable section to explore next. A clinical consultation determines individual fit.`;
+      const result = document.querySelector(".concierge-result");
+      if (result) result.textContent = `${text}: Continue to scheduling`;
+      document.querySelector(".concierge-progress span").textContent = "Step 2 of 2";
     });
   });
 });
