@@ -34,6 +34,7 @@
   grid-template-columns: max-content 1fr max-content;
   align-items: center;
   gap: clamp(26px, 3vw, 44px);
+  padding-right: 34px;
 }
 
 .brand {
@@ -300,6 +301,16 @@
 
 .header-actions > .btn span {
   color: var(--monti-gold-soft);
+}
+
+@media (min-width: 1281px) {
+  .desktop-nav {
+    transform: translateX(-12px);
+  }
+
+  .header-actions {
+    transform: translateX(-34px);
+  }
 }
 
 .menu-toggle {
@@ -947,6 +958,7 @@
     grid-template-columns: max-content 1fr max-content;
     gap: 18px;
     min-height: 90px;
+    padding-right: 26px;
   }
 
   .brand {
