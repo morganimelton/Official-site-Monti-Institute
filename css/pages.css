@@ -1,0 +1,512 @@
+@import url("components.css");
+
+.home-hero {
+  position: relative;
+  min-height: 610px;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+  padding: 140px 0 34px;
+  background:
+    radial-gradient(ellipse at 50% 39%, rgba(255, 253, 248, 1) 0%, rgba(255, 253, 248, 1) 32%, rgba(249, 245, 237, 0.98) 45%, rgba(244, 239, 229, 0.92) 58%, rgba(244, 239, 229, 0.72) 100%),
+    linear-gradient(90deg, var(--monti-cream) 0%, var(--monti-ivory) 33%, var(--monti-ivory) 67%, var(--monti-cream) 100%);
+}
+
+.home-hero__image {
+  position: absolute;
+  top: 104px;
+  bottom: 0;
+  width: 36%;
+  background-position: center;
+  background-size: cover;
+  opacity: 1;
+}
+
+.home-hero__image--left {
+  left: 0;
+  background-image:
+    linear-gradient(90deg, rgba(244, 239, 229, 0) 0%, rgba(244, 239, 229, 0) 48%, rgba(255, 253, 248, 0.66) 76%, rgba(255, 253, 248, 1) 100%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.7) 0%, rgba(255, 253, 248, 0.24) 34%, rgba(255, 253, 248, 0) 66%),
+    url("../assets/images/monti-water-feature.png");
+  background-position: center left;
+}
+
+.home-hero__image--right {
+  right: 0;
+  background-image:
+    linear-gradient(270deg, rgba(244, 239, 229, 0) 0%, rgba(244, 239, 229, 0) 48%, rgba(255, 253, 248, 0.68) 76%, rgba(255, 253, 248, 1) 100%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.48) 0%, rgba(255, 253, 248, 0.12) 38%, rgba(255, 253, 248, 0) 68%),
+    url("../assets/images/monti-reception.png");
+  background-position: center right;
+}
+
+.home-hero__wash {
+  position: absolute;
+  inset: 104px 0 0;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 248, 0) 0%, rgba(255, 253, 248, 0.56) 32%, rgba(255, 253, 248, 0.8) 50%, rgba(255, 253, 248, 0.56) 68%, rgba(255, 253, 248, 0) 100%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(244, 239, 229, 0.08) 72%, rgba(244, 239, 229, 0.18));
+  pointer-events: none;
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  max-width: 570px;
+  text-align: center;
+}
+
+.home-hero h1 {
+  max-width: 540px;
+  font-size: clamp(2.75rem, 4.35vw, 4.65rem);
+  line-height: 1.02;
+}
+
+.home-hero .eyebrow::after {
+  display: block;
+  width: 34px;
+  height: 1px;
+  margin: 12px auto 0;
+  background: var(--monti-gold);
+  content: "";
+}
+
+.home-hero__actions,
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.home-hero__mobile-image {
+  display: none;
+}
+
+.brand-statement {
+  padding-block: 34px 36px;
+  text-align: center;
+}
+
+.brand-statement__inner {
+  display: grid;
+  gap: 10px;
+}
+
+.brand-statement h2 {
+  max-width: none;
+  font-size: clamp(1.9rem, 2.6vw, 3rem);
+}
+
+.brand-statement p:not(.eyebrow) {
+  color: rgba(248, 244, 236, 0.86);
+}
+
+.care-showcase {
+  background: var(--monti-midnight);
+  padding-bottom: 2px;
+}
+
+.care-showcase__intro {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding-block: 42px 30px;
+  text-align: center;
+}
+
+.care-showcase__intro h2,
+.care-showcase__intro p {
+  color: var(--monti-text-on-dark);
+}
+
+.care-showcase__intro h2 {
+  max-width: 980px;
+  justify-self: center;
+  font-size: clamp(2.35rem, 5vw, 5.2rem);
+  line-height: 0.98;
+}
+
+.care-showcase__intro .section-heading__copy {
+  width: min(100%, 980px);
+  justify-items: center;
+}
+
+.care-grid--homepage {
+  width: min(100%, 1600px);
+  margin-inline: auto;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.difference {
+  padding-block: 54px;
+}
+
+.difference__inner {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 86px);
+  align-items: center;
+}
+
+.difference__intro {
+  display: grid;
+  gap: 18px;
+}
+
+.difference h2 {
+  font-size: clamp(2rem, 3.5vw, 3.8rem);
+}
+
+.text-link--dark {
+  color: var(--monti-gold-soft);
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.principle {
+  min-height: 176px;
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  padding: 22px 24px;
+  border-left: 1px solid rgba(248, 244, 236, 0.28);
+  text-align: center;
+}
+
+.principle span {
+  color: var(--monti-gold);
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.principle h3 {
+  color: var(--monti-gold-soft);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.principle p {
+  color: rgba(248, 244, 236, 0.78);
+  font-size: 0.88rem;
+}
+
+.membership-feature {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  background: var(--monti-cream);
+}
+
+.membership-feature__media {
+  position: absolute;
+  inset: 0 0 0 34%;
+  background-image:
+    linear-gradient(90deg, var(--monti-cream), rgba(244, 239, 229, 0.62) 18%, rgba(244, 239, 229, 0.04) 48%),
+    url("../assets/images/monti-water-feature.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.membership-feature__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.membership-feature__copy {
+  max-width: 390px;
+  display: grid;
+  gap: 18px;
+}
+
+.experience-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.48fr);
+  align-items: stretch;
+}
+
+.experience-feature__image {
+  min-height: 380px;
+  background-image: url("../assets/images/monti-reception.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.experience-feature__content {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  max-width: 560px;
+  padding: clamp(42px, 7vw, 86px) var(--gutter);
+}
+
+.providers-home__layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+}
+
+.providers-home__intro {
+  display: grid;
+  gap: 16px;
+}
+
+.providers-home__intro h2 {
+  font-size: clamp(2rem, 3.3vw, 3.5rem);
+}
+
+.final-cta {
+  padding-block: 40px;
+}
+
+.final-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.final-cta h2 {
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+@media (max-width: 1200px) {
+  .home-hero {
+    min-height: 600px;
+  }
+
+  .care-grid--homepage {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .care-grid--homepage .care-tile {
+    grid-column: span 2;
+  }
+
+  .care-grid--homepage .care-tile:nth-child(4),
+  .care-grid--homepage .care-tile:nth-child(5) {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-hero {
+    min-height: 560px;
+    padding-top: 126px;
+  }
+
+  .home-hero__image {
+    top: 90px;
+    width: 48%;
+  }
+
+  .home-hero__wash {
+    inset-block-start: 90px;
+  }
+
+  .home-hero h1 {
+    max-width: 520px;
+    font-size: clamp(2.65rem, 5vw, 4.1rem);
+  }
+
+  .difference__inner,
+  .providers-home__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .principle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgba(248, 244, 236, 0.22);
+  }
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    min-height: auto;
+    padding-block: calc(var(--header-height) + 42px) 42px;
+  }
+
+  .home-hero__image,
+  .home-hero__wash {
+    display: none;
+  }
+
+  .home-hero__content {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .home-hero .eyebrow::after {
+    margin-inline: 0 auto;
+  }
+
+  .home-hero h1 {
+    max-width: 650px;
+  }
+
+  .home-hero__actions {
+    justify-content: start;
+  }
+
+  .home-hero__mobile-image {
+    width: 100%;
+    display: block;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
+  .home-hero__mobile-image img {
+    width: 100%;
+    min-height: 220px;
+    max-height: 310px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .care-showcase__intro,
+  .experience-feature,
+  .final-cta__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-feature__image {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-hero {
+    padding-block: calc(var(--header-height) + 24px) 28px;
+  }
+
+  .home-hero h1 {
+    max-width: 420px;
+    font-size: clamp(2.05rem, 9vw, 2.65rem);
+    line-height: 1.02;
+  }
+
+  .home-hero__actions,
+  .final-cta__actions {
+    width: 100%;
+    display: grid;
+    gap: 10px;
+  }
+
+  .home-hero__mobile-image {
+    margin-top: 4px;
+  }
+
+  .brand-statement {
+    padding-block: 28px;
+  }
+
+  .care-showcase__intro {
+    padding-block: 38px 22px;
+  }
+
+  .care-grid--homepage {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(238px, 78%);
+    overflow-x: auto;
+    padding: 0 var(--gutter) 14px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .care-grid--homepage .care-tile,
+  .care-grid--homepage .care-tile:nth-child(4),
+  .care-grid--homepage .care-tile:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .difference {
+    padding-block: 42px;
+  }
+
+  .principle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .principle {
+    min-height: auto;
+    border-left: 0;
+    border-top: 1px solid rgba(248, 244, 236, 0.22);
+    padding: 20px 0;
+    text-align: left;
+  }
+
+  .membership-feature {
+    min-height: auto;
+    padding-block: 0;
+  }
+
+  .membership-feature__media {
+    position: relative;
+    inset: auto;
+    min-height: 220px;
+    order: 2;
+    background-image:
+      linear-gradient(180deg, rgba(244, 239, 229, 0.02), rgba(244, 239, 229, 0.18)),
+    url("../assets/images/monti-water-feature.png");
+  }
+
+  .membership-feature__inner {
+    padding-block: 44px 28px;
+  }
+
+  .experience-feature__image {
+    min-height: 220px;
+  }
+
+  .experience-feature__content {
+    padding-block: 38px;
+  }
+
+  .final-cta {
+    padding-block: 32px;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-hero__mobile-image img {
+    min-height: 164px;
+    max-height: 198px;
+  }
+
+  .brand-statement h2 {
+    font-size: 1.7rem;
+  }
+
+  .care-grid--homepage {
+    grid-auto-columns: 82%;
+  }
+}
+
+@media (max-width: 390px) {
+  .home-hero h1 {
+    font-size: 1.96rem;
+  }
+
+  .home-hero__content {
+    gap: 16px;
+  }
+
+  .care-grid--homepage {
+    grid-auto-columns: 84%;
+  }
+}

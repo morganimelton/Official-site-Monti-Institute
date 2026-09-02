@@ -1,0 +1,73 @@
+:root {
+  --monti-navy: #071a33;
+  --monti-midnight: #020b16;
+  --monti-navy-soft: #123052;
+  --monti-navy-mist: #e7ebef;
+  --monti-gold: #c7a15a;
+  --monti-gold-soft: #e1c990;
+  --monti-cream: #f4efe5;
+  --monti-ivory: #fffdf8;
+  --monti-white: #ffffff;
+  --monti-line: #ded6c8;
+  --monti-line-dark: rgba(255, 255, 255, 0.16);
+  --monti-text: #17212f;
+  --monti-muted: #64707f;
+  --monti-text-on-dark: #f8f4ec;
+  --monti-charcoal: #24303d;
+
+  --gradient-navy:
+    radial-gradient(circle at 18% 0%, rgba(199, 161, 90, 0.13), transparent 34%),
+    linear-gradient(135deg, var(--monti-navy), var(--monti-midnight) 74%);
+  --gradient-navy-soft:
+    linear-gradient(145deg, rgba(7, 26, 51, 0.96), rgba(18, 48, 82, 0.92)),
+    radial-gradient(circle at 82% 12%, rgba(199, 161, 90, 0.11), transparent 32%);
+
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Inter, Avenir, "Avenir Next", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container-width: 1280px;
+  --reading-width: 760px;
+  --narrow-width: 620px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --header-height: 84px;
+
+  --space-2xs: 6px;
+  --space-xs: 10px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 36px;
+  --space-xl: 56px;
+  --space-2xl: 84px;
+  --section-space: clamp(84px, 8vw, 124px);
+  --section-space-compact: clamp(58px, 6vw, 82px);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-soft: 0 18px 48px rgba(7, 26, 51, 0.1);
+  --focus-ring: 0 0 0 3px rgba(199, 161, 90, 0.38);
+  --transition-fast: 160ms ease;
+  --transition-base: 220ms ease;
+
+  --bp-small-desktop: 1100px;
+  --bp-tablet: 900px;
+  --bp-mobile: 680px;
+  --bp-narrow-mobile: 430px;
+  --bp-small-mobile: 390px;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-height: 72px;
+    --gutter: clamp(18px, 5vw, 36px);
+    --section-space: 68px;
+    --section-space-compact: 48px;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --gutter: 18px;
+    --section-space: 56px;
+    --section-space-compact: 38px;
+  }
+}
