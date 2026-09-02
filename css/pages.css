@@ -303,7 +303,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .home-hero {
     min-height: 560px;
     padding-top: 126px;
@@ -334,7 +334,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
   .home-hero {
     min-height: auto;
     padding-block: calc(var(--header-height) + 42px) 42px;

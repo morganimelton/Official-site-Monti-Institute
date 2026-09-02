@@ -48,14 +48,14 @@
   --transition-fast: 160ms ease;
   --transition-base: 220ms ease;
 
-  --bp-small-desktop: 1100px;
-  --bp-tablet: 900px;
-  --bp-mobile: 680px;
+  --bp-desktop: 1024px;
+  --bp-tablet: 768px;
+  --bp-mobile: 767px;
   --bp-narrow-mobile: 430px;
   --bp-small-mobile: 390px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
   :root {
     --header-height: 72px;
     --gutter: clamp(18px, 5vw, 36px);

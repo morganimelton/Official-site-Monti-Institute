@@ -4,6 +4,7 @@ const mobilePanel = document.querySelector("[data-mobile-panel]");
 const mobileLinks = document.querySelectorAll(".mobile-nav a");
 const careMenuRoot = document.querySelector("[data-care-menu-root]");
 const careMenuTrigger = document.querySelector("[data-care-menu-trigger]");
+const mobileNavQuery = window.matchMedia("(max-width: 767px)");
 
 function setScrolledState() {
   header?.classList.toggle("is-scrolled", window.scrollY > 16);
@@ -30,33 +31,33 @@ function setCareMenu(open) {
 menuToggle?.addEventListener("click", toggleMenu);
 
 careMenuTrigger?.addEventListener("click", (event) => {
-  if (window.innerWidth <= 900) return;
+  if (mobileNavQuery.matches) return;
   event.preventDefault();
   setCareMenu(true);
 });
 
 careMenuRoot?.addEventListener("pointerenter", () => {
-  if (window.innerWidth > 900) setCareMenu(true);
+  if (!mobileNavQuery.matches) setCareMenu(true);
 });
 
 careMenuRoot?.addEventListener("pointerleave", () => {
-  if (window.innerWidth > 900) {
+  if (!mobileNavQuery.matches) {
     careMenuRoot.classList.remove("is-menu-suppressed");
     setCareMenu(false);
   }
 });
 
 careMenuRoot?.addEventListener("focusin", () => {
-  if (window.innerWidth > 900) setCareMenu(true);
+  if (!mobileNavQuery.matches) setCareMenu(true);
 });
 
 careMenuRoot?.addEventListener("focusout", (event) => {
-  if (window.innerWidth <= 900) return;
+  if (mobileNavQuery.matches) return;
   if (!careMenuRoot.contains(event.relatedTarget)) setCareMenu(false);
 });
 
 document.addEventListener("click", (event) => {
-  if (window.innerWidth <= 900) return;
+  if (mobileNavQuery.matches) return;
   if (!careMenuRoot?.contains(event.target)) setCareMenu(false);
 });
 
@@ -70,8 +71,8 @@ mobilePanel?.addEventListener("click", (event) => {
 
 window.addEventListener("scroll", setScrolledState, { passive: true });
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 900) closeMenu();
-  if (window.innerWidth <= 900) setCareMenu(false);
+  if (!mobileNavQuery.matches) closeMenu();
+  if (mobileNavQuery.matches) setCareMenu(false);
 });
 
 window.addEventListener("keydown", (event) => {
