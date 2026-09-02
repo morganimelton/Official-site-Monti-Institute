@@ -1084,6 +1084,20 @@
     justify-content: space-between;
   }
 
+  .brand {
+    flex: 0 1 min(252px, calc(100% - 62px));
+    width: min(252px, calc(100% - 62px));
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .brand__symbol {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 48px;
+    overflow: visible;
+  }
+
   .desktop-nav,
   .header-actions > .btn {
     display: none;
@@ -1100,7 +1114,9 @@
 
   .brand img {
     width: 100%;
+    height: 100%;
     max-height: none;
+    object-fit: contain;
   }
 
   .section-heading,
@@ -1214,6 +1230,8 @@
 @media (max-width: 430px) {
   .brand {
     gap: 8px;
+    flex-basis: min(238px, calc(100% - 58px));
+    width: min(238px, calc(100% - 58px));
   }
 
   .brand__symbol {
