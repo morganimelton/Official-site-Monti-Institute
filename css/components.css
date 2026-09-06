@@ -225,6 +225,11 @@
   transition: background var(--transition-base), color var(--transition-base);
 }
 
+.care-menu__links a:nth-child(-n + 2) {
+  background: rgba(255, 253, 248, 0.58);
+  box-shadow: inset 0 0 0 1px rgba(187, 133, 46, 0.42);
+}
+
 .care-menu__links a:last-child {
   grid-column: 1 / -1;
   min-height: 92px;
@@ -1095,6 +1100,11 @@
     flex: 0 0 52px;
     width: 52px;
     height: 48px;
+    overflow: visible;
+  }
+
+  .brand__wordmark {
+    flex: 0 0 auto;
     overflow: visible;
   }
 
