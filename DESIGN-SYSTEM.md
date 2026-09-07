@@ -91,7 +91,6 @@ Main navigation:
 - Care
 - About
 - Providers
-- The Experience
 - Memberships
 - Patient Resources
 - Request Appointment
@@ -152,9 +151,8 @@ After this system is approved:
 1. Homepage visual benchmark
 2. About
 3. Providers
-4. The Experience
-5. Memberships
-6. Patient Resources
-7. Major care pages
+4. Memberships
+5. Patient Resources
+6. Major care pages
 
 Do not create dedicated treatment pages unless explicitly requested.
