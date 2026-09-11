@@ -103,13 +103,23 @@
   font-size: clamp(2rem, 3.6vw, 3.8rem);
 }
 
-.neurology-access p:last-child {
+.neurology-access__copy {
+  display: grid;
+  justify-items: start;
+  gap: 24px;
+}
+
+.neurology-access__copy p {
   color: var(--monti-text);
+}
+
+.neurology-treatment-column {
+  display: grid;
 }
 
 .neurology-note {
   max-width: 720px;
-  margin: 26px 0 0 auto;
+  margin-top: 26px;
   border-left: 1px solid rgba(199, 161, 90, 0.58);
   padding-left: 18px;
   color: var(--monti-muted);
