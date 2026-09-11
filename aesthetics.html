@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Browse care categories at Monti Institute of Neuro Aesthetics in Reno, Nevada."
+      content="Physician-led aesthetics and injectable treatments at Monti Institute of Neuro Aesthetics in Reno, Nevada."
     >
-    <title>Care | Monti Institute of Neuro Aesthetics</title>
+    <title>Aesthetics & Injectables | Monti Institute of Neuro Aesthetics</title>
     <link rel="stylesheet" href="css/pages.css">
-    <link rel="stylesheet" href="css/care.css">
+    <link rel="stylesheet" href="css/aesthetics.css">
   </head>
-  <body class="care-page">
+  <body class="aesthetics-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page">
       <!-- TODO: confirm Monti booking destination before replacing #appointment-unconfirmed. -->
@@ -108,58 +108,118 @@
       </header>
 
       <main id="main">
-        <section class="care-hero section--ivory">
-          <div class="container section-heading care-hero__inner">
-            <div class="section-heading__copy">
-              <p class="eyebrow">Care</p>
-              <h1>What we offer at <span>Monti Institute</span>?</h1>
-              <p class="lead">Browse the primary care categories offered through Monti Institute of Neuro Aesthetics.</p>
+        <section class="aesthetics-hero section--ivory">
+          <div class="container aesthetics-hero__inner">
+            <div class="aesthetics-hero__content">
+              <p class="eyebrow">Aesthetics & Injectables</p>
+              <h1>Aesthetic medicine, guided by medical expertise.</h1>
+              <p>Monti Institute offers physician-led aesthetic treatments performed by trained medical professionals, with care grounded in facial anatomy, clinical judgment, proportion, and the individual goals of each patient.</p>
+            </div>
+            <figure class="aesthetics-hero__media">
+              <img src="assets/images/monti-aesthetic-suite.png" alt="Monti Institute aesthetics treatment suite">
+            </figure>
+          </div>
+        </section>
+
+        <section class="aesthetics-treatments section--cream" aria-labelledby="aesthetic-treatments-heading">
+          <div class="container aesthetics-treatments__layout">
+            <div class="aesthetics-treatments__intro">
+              <p class="eyebrow">Aesthetic Treatments</p>
+              <h2 id="aesthetic-treatments-heading">Designed around you.</h2>
+              <p>Every treatment begins with an individualized assessment of your anatomy, goals, and the result you want to achieve.</p>
+            </div>
+
+            <div class="aesthetics-accordion" data-accordion>
+              <article class="treatment-row aesthetics-treatment">
+                <button class="treatment-row__trigger" type="button" aria-expanded="false">
+                  <span class="treatment-row__category">01</span>
+                  <span class="treatment-row__title">Botox® & Neuromodulators</span>
+                  <span class="treatment-row__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="treatment-row__panel">
+                  <div class="treatment-row__content">
+                    <p>Neuromodulator treatments can soften the appearance of expression lines and are individualized according to facial anatomy, movement, and treatment goals.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="treatment-row aesthetics-treatment">
+                <button class="treatment-row__trigger" type="button" aria-expanded="false">
+                  <span class="treatment-row__category">02</span>
+                  <span class="treatment-row__title">Dermal Fillers</span>
+                  <span class="treatment-row__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="treatment-row__panel">
+                  <div class="treatment-row__content">
+                    <p>Filler treatments are used selectively to restore or enhance volume, contour, proportion, and facial balance according to individual anatomy.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="treatment-row aesthetics-treatment">
+                <button class="treatment-row__trigger" type="button" aria-expanded="false">
+                  <span class="treatment-row__category">03</span>
+                  <span class="treatment-row__title">Facial Injectables</span>
+                  <span class="treatment-row__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="treatment-row__panel">
+                  <div class="treatment-row__content">
+                    <p>Injectable treatment plans may combine appropriate techniques to address the patient's individual aesthetic goals while maintaining natural proportion and balance.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="treatment-row aesthetics-treatment">
+                <button class="treatment-row__trigger" type="button" aria-expanded="false">
+                  <span class="treatment-row__category">04</span>
+                  <span class="treatment-row__title">Hyperhidrosis Botox®</span>
+                  <span class="treatment-row__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="treatment-row__panel">
+                  <div class="treatment-row__content">
+                    <p>Therapeutic Botox may be used for appropriate patients to help manage excessive sweating.</p>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </section>
 
-        <section class="care-overview section--cream" aria-label="Care categories">
-          <div class="container care-grid care-overview__grid">
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-treatment-suite.png');">
-              <span class="care-tile__number">01</span>
-              <div class="care-tile__body">
-                <h3>Neurology & Migraine</h3>
-                <p>Migraine, headache, and neurological care.</p>
-                <a class="text-link" href="neurology-migraine.html">Explore</a>
-              </div>
-            </article>
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-aesthetic-suite.png');">
-              <span class="care-tile__number">02</span>
-              <div class="care-tile__body">
-                <h3>Aesthetics & Injectables</h3>
-                <p>Physician-led injectables and facial aesthetics.</p>
-                <a class="text-link" href="aesthetics.html">Explore</a>
-              </div>
-            </article>
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-reception.png');">
-              <span class="care-tile__number">03</span>
-              <div class="care-tile__body">
-                <h3>Skin & Laser</h3>
-                <p>Laser, IPL, resurfacing, facials, and advanced skin care.</p>
-                <a class="text-link" href="skin-laser.html">Explore</a>
-              </div>
-            </article>
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-aesthetic-suite.png');">
-              <span class="care-tile__number">04</span>
-              <div class="care-tile__body">
-                <h3>Body & Hair Reduction</h3>
-                <p>Body treatments, RF care, and laser hair reduction.</p>
-                <a class="text-link" href="body-hair.html">Explore</a>
-              </div>
-            </article>
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-infusion-lounge.png');">
-              <span class="care-tile__number">05</span>
-              <div class="care-tile__body">
-                <h3>Infusions & Wellness</h3>
-                <p>IV therapy, NAD+, wellness support, and therapeutic massage.</p>
-                <a class="text-link" href="infusions-wellness.html">Explore</a>
-              </div>
-            </article>
+        <section class="aesthetics-approach section--ivory" aria-labelledby="approach-heading">
+          <div class="container aesthetics-approach__layout">
+            <div class="aesthetics-approach__statement">
+              <p class="eyebrow">The Monti Approach</p>
+              <h2 id="approach-heading">Beauty, backed by medicine.</h2>
+            </div>
+            <div class="aesthetics-principles">
+              <article class="aesthetics-principle">
+                <span>01</span>
+                <div>
+                  <h3>Assess first.</h3>
+                  <p>Treatment begins with an individualized assessment rather than a predetermined procedure.</p>
+                </div>
+              </article>
+              <article class="aesthetics-principle">
+                <span>02</span>
+                <div>
+                  <h3>Treat with intention.</h3>
+                  <p>Recommendations are guided by anatomy, clinical judgment, and the patient's goals.</p>
+                </div>
+              </article>
+              <article class="aesthetics-principle">
+                <span>03</span>
+                <div>
+                  <h3>Prioritize balance.</h3>
+                  <p>The goal is not to change what makes someone recognizable, but to create thoughtful, proportionate results.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="aesthetics-final section--navy">
+          <div class="container aesthetics-final__inner">
+            <p class="eyebrow">Your treatment, your goals</p>
+            <h2>Ready to create your treatment plan?</h2>
+            <p>Meet with a Monti medical professional to discuss your goals and determine which treatments may be appropriate for you.</p>
+            <a class="btn btn--champagne" href="#appointment-unconfirmed">Request an Aesthetic Consultation <span aria-hidden="true">-&gt;</span></a>
           </div>
         </section>
       </main>

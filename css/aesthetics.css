@@ -1,0 +1,357 @@
+.aesthetics-page {
+  background: var(--monti-cream);
+}
+
+.aesthetics-page .btn--champagne {
+  border-color: rgba(177, 127, 53, 0.54);
+  background:
+    linear-gradient(135deg, #f4e2b0 0%, var(--monti-gold-soft) 38%, #c99a45 100%);
+  color: var(--monti-midnight);
+  box-shadow: none;
+}
+
+.aesthetics-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-height) + 96px) 0 90px;
+}
+
+.aesthetics-hero::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 22%, rgba(199, 161, 90, 0.14), transparent 30%),
+    linear-gradient(110deg, rgba(255, 253, 248, 0.98), rgba(244, 239, 229, 0.78));
+  content: "";
+}
+
+.aesthetics-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 0.62fr);
+  gap: clamp(48px, 7vw, 104px);
+  align-items: center;
+}
+
+.aesthetics-hero__content {
+  max-width: 790px;
+  display: grid;
+  gap: 20px;
+}
+
+.aesthetics-hero h1 {
+  max-width: 790px;
+  font-size: clamp(3.25rem, 6.4vw, 6.7rem);
+}
+
+.aesthetics-hero__content p:not(.eyebrow) {
+  max-width: 680px;
+  color: var(--monti-text);
+  font-size: clamp(1.05rem, 1.35vw, 1.24rem);
+  line-height: 1.62;
+}
+
+.aesthetics-hero__media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(199, 161, 90, 0.36);
+  border-radius: var(--radius-md);
+}
+
+.aesthetics-hero__media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 11, 22, 0.02), rgba(2, 11, 22, 0.2));
+  content: "";
+}
+
+.aesthetics-hero__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.aesthetics-treatments {
+  padding-block: clamp(82px, 8vw, 124px);
+}
+
+.aesthetics-treatments__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.38fr) minmax(500px, 0.82fr);
+  gap: clamp(48px, 8vw, 118px);
+  align-items: start;
+}
+
+.aesthetics-treatments__intro {
+  max-width: 500px;
+  display: grid;
+  gap: 18px;
+}
+
+.aesthetics-treatments__intro h2 {
+  font-size: clamp(2.6rem, 5vw, 5.25rem);
+}
+
+.aesthetics-treatments__intro p:not(.eyebrow) {
+  color: var(--monti-text);
+}
+
+.aesthetics-accordion {
+  display: grid;
+  border-top: 1px solid rgba(199, 161, 90, 0.58);
+}
+
+.aesthetics-treatment {
+  border-bottom-color: rgba(199, 161, 90, 0.42);
+}
+
+.aesthetics-treatment .treatment-row__trigger {
+  grid-template-columns: 72px minmax(0, 1fr) 28px;
+  gap: 26px;
+  padding: 28px 0;
+  transition: color var(--transition-base), padding-left var(--transition-base);
+}
+
+.aesthetics-treatment .treatment-row__trigger:hover,
+.aesthetics-treatment .treatment-row__trigger:focus-visible {
+  padding-left: 10px;
+}
+
+.aesthetics-treatment .treatment-row__category {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.aesthetics-treatment .treatment-row__title {
+  font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+}
+
+.aesthetics-treatment .treatment-row__content {
+  max-width: 760px;
+  padding: 0 0 30px 98px;
+}
+
+.aesthetics-treatment .treatment-row__content p {
+  color: var(--monti-text);
+}
+
+.aesthetics-approach {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(82px, 8vw, 126px);
+}
+
+.aesthetics-approach::before {
+  position: absolute;
+  inset: auto 0 0 auto;
+  width: min(48vw, 680px);
+  height: 74%;
+  background:
+    linear-gradient(145deg, rgba(255, 253, 248, 0.64), rgba(244, 239, 229, 0)),
+    url("../assets/images/monti-reception.png") center / cover;
+  content: "";
+  opacity: 0.12;
+}
+
+.aesthetics-approach__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(420px, 0.78fr);
+  gap: clamp(52px, 9vw, 132px);
+  align-items: start;
+}
+
+.aesthetics-approach__statement {
+  display: grid;
+  gap: 18px;
+}
+
+.aesthetics-approach h2 {
+  max-width: 680px;
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
+}
+
+.aesthetics-principles {
+  display: grid;
+  gap: 0;
+  padding-top: clamp(24px, 4vw, 46px);
+}
+
+.aesthetics-principle {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  gap: 26px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(199, 161, 90, 0.56);
+}
+
+.aesthetics-principle:last-child {
+  border-bottom: 1px solid rgba(199, 161, 90, 0.56);
+}
+
+.aesthetics-principle span {
+  color: var(--monti-gold);
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.aesthetics-principle h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.35rem, 1.7vw, 1.85rem);
+}
+
+.aesthetics-final {
+  padding-block: clamp(78px, 8vw, 120px);
+}
+
+.aesthetics-final__inner {
+  max-width: 800px;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.aesthetics-final h2 {
+  color: var(--monti-text-on-dark);
+  font-size: clamp(2.4rem, 4.8vw, 5rem);
+}
+
+.aesthetics-final p:not(.eyebrow) {
+  max-width: 620px;
+  color: rgba(248, 244, 236, 0.84);
+}
+
+.aesthetics-final .eyebrow {
+  color: var(--monti-gold-soft);
+}
+
+@media (max-width: 1024px) {
+  .aesthetics-hero__inner,
+  .aesthetics-treatments__layout,
+  .aesthetics-approach__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aesthetics-hero__media {
+    max-width: 680px;
+  }
+
+  .aesthetics-hero__media img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 767px) {
+  .aesthetics-hero {
+    padding: calc(var(--header-height) + 58px) 0 58px;
+  }
+
+  .aesthetics-hero__inner {
+    gap: 34px;
+  }
+
+  .aesthetics-hero__content {
+    gap: 16px;
+  }
+
+  .aesthetics-hero h1 {
+    font-size: clamp(2.75rem, 13vw, 4rem);
+  }
+
+  .aesthetics-hero__media img {
+    aspect-ratio: 5 / 4;
+  }
+
+  .aesthetics-treatments,
+  .aesthetics-approach {
+    padding-block: 58px;
+  }
+
+  .aesthetics-treatments__layout,
+  .aesthetics-approach__layout {
+    gap: 36px;
+  }
+
+  .aesthetics-treatments__intro {
+    gap: 14px;
+  }
+
+  .aesthetics-treatments__intro h2,
+  .aesthetics-approach h2 {
+    font-size: clamp(2.25rem, 11vw, 3.45rem);
+  }
+
+  .aesthetics-treatment .treatment-row__trigger {
+    grid-template-columns: 44px minmax(0, 1fr) 24px;
+    gap: 14px;
+    padding: 21px 0;
+  }
+
+  .aesthetics-treatment .treatment-row__trigger:hover,
+  .aesthetics-treatment .treatment-row__trigger:focus-visible {
+    padding-left: 0;
+  }
+
+  .aesthetics-treatment .treatment-row__category {
+    font-size: 1.08rem;
+  }
+
+  .aesthetics-treatment .treatment-row__title {
+    font-size: clamp(1.35rem, 6vw, 1.72rem);
+  }
+
+  .aesthetics-treatment .treatment-row__content {
+    padding: 0 0 24px 58px;
+  }
+
+  .aesthetics-approach::before {
+    width: 100%;
+    height: 36%;
+    opacity: 0.06;
+  }
+
+  .aesthetics-principles {
+    padding-top: 0;
+  }
+
+  .aesthetics-principle {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 18px;
+    padding: 24px 0;
+  }
+
+  .aesthetics-principle span {
+    font-size: 1.45rem;
+  }
+
+  .aesthetics-final {
+    padding-block: 64px;
+  }
+
+  .aesthetics-final__inner {
+    justify-items: stretch;
+  }
+}
+
+@media (max-width: 430px) {
+  .aesthetics-treatment .treatment-row__trigger {
+    grid-template-columns: minmax(0, 1fr) 24px;
+    row-gap: 8px;
+  }
+
+  .aesthetics-treatment .treatment-row__category {
+    grid-column: 1 / -1;
+  }
+
+  .aesthetics-treatment .treatment-row__content {
+    padding-left: 0;
+  }
+}
