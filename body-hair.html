@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Browse care categories at Monti Institute of Neuro Aesthetics in Reno, Nevada."
+      content="Body treatments and laser hair reduction at Monti Institute of Neuro Aesthetics in Reno, Nevada."
     >
-    <title>Care | Monti Institute of Neuro Aesthetics</title>
+    <title>Body & Hair Reduction | Monti Institute of Neuro Aesthetics</title>
     <link rel="stylesheet" href="css/pages.css">
-    <link rel="stylesheet" href="css/care.css">
+    <link rel="stylesheet" href="css/body-hair.css">
   </head>
-  <body class="care-page">
+  <body class="body-hair-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page">
       <!-- TODO: confirm Monti booking destination before replacing #appointment-unconfirmed. -->
@@ -108,58 +108,133 @@
       </header>
 
       <main id="main">
-        <section class="care-hero section--ivory">
-          <div class="container section-heading care-hero__inner">
-            <div class="section-heading__copy">
-              <p class="eyebrow">Care</p>
-              <h1>What we offer at <span>Monti Institute</span>?</h1>
-              <p class="lead">Browse the primary care categories offered through Monti Institute of Neuro Aesthetics.</p>
+        <section class="body-hero section--ivory">
+          <div class="container body-hero__inner">
+            <p class="eyebrow">Body & Hair Reduction</p>
+            <h1>Advanced body treatments, guided by clinical care.</h1>
+            <p>Monti Institute offers individualized body treatments and laser hair reduction within a medically guided setting, with treatment plans selected according to your goals, treatment area, and individual needs.</p>
+          </div>
+        </section>
+
+        <section class="body-treatments section--cream" aria-labelledby="body-treatments-heading">
+          <div class="container body-treatments__layout">
+            <div class="body-treatments__intro">
+              <p class="eyebrow">Body Treatments</p>
+              <h2 id="body-treatments-heading">Targeted care for the body.</h2>
+            </div>
+            <div class="body-treatment-list" data-accordion>
+              <article class="treatment-row body-treatment">
+                <button class="treatment-row__trigger" type="button" aria-expanded="false">
+                  <span class="treatment-row__category">01</span>
+                  <span class="treatment-row__title">Body & Sculpt</span>
+                  <span class="treatment-row__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="treatment-row__panel">
+                  <div class="treatment-row__content">
+                    <p>A body-focused treatment option selected according to the treatment area, goals, and individual needs.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="treatment-row body-treatment">
+                <button class="treatment-row__trigger" type="button" aria-expanded="false">
+                  <span class="treatment-row__category">02</span>
+                  <span class="treatment-row__title">Targeted Cellulite & Lymphatic Detox</span>
+                  <span class="treatment-row__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="treatment-row__panel">
+                  <div class="treatment-row__content">
+                    <p>A targeted body treatment considered for appropriate patients after assessment of goals, treatment area, and tolerance.</p>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </section>
 
-        <section class="care-overview section--cream" aria-label="Care categories">
-          <div class="container care-grid care-overview__grid">
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-treatment-suite.png');">
-              <span class="care-tile__number">01</span>
-              <div class="care-tile__body">
-                <h3>Neurology & Migraine</h3>
-                <p>Migraine, headache, and neurological care.</p>
-                <a class="text-link" href="neurology-migraine.html">Explore</a>
-              </div>
-            </article>
-            <a class="care-tile care-tile--photo" href="aesthetics.html" style="--tile-image: url('../assets/images/monti-aesthetic-suite.png');" aria-label="Explore Aesthetics & Injectables">
-              <span class="care-tile__number">02</span>
-              <div class="care-tile__body">
-                <h3>Aesthetics & Injectables</h3>
-                <p>Physician-led injectables and facial aesthetics.</p>
-                <span class="text-link">Explore</span>
-              </div>
-            </a>
-            <a class="care-tile care-tile--photo" href="skin-laser.html" style="--tile-image: url('../assets/images/monti-reception.png');" aria-label="Explore Skin & Laser">
-              <span class="care-tile__number">03</span>
-              <div class="care-tile__body">
-                <h3>Skin & Laser</h3>
-                <p>Laser, IPL, resurfacing, facials, and advanced skin care.</p>
-                <span class="text-link">Explore</span>
-              </div>
-            </a>
-            <a class="care-tile care-tile--photo" href="body-hair.html" style="--tile-image: url('../assets/images/monti-aesthetic-suite.png');" aria-label="Explore Body & Hair Reduction">
-              <span class="care-tile__number">04</span>
-              <div class="care-tile__body">
-                <h3>Body & Hair Reduction</h3>
-                <p>Body treatments, RF care, and laser hair reduction.</p>
-                <span class="text-link">Explore</span>
-              </div>
-            </a>
-            <article class="care-tile care-tile--photo" style="--tile-image: url('../assets/images/monti-infusion-lounge.png');">
-              <span class="care-tile__number">05</span>
-              <div class="care-tile__body">
-                <h3>Infusions & Wellness</h3>
-                <p>IV therapy, NAD+, wellness support, and therapeutic massage.</p>
-                <a class="text-link" href="infusions-wellness.html">Explore</a>
-              </div>
-            </article>
+        <section class="hair-reduction section--ivory" aria-labelledby="hair-reduction-heading">
+          <div class="container hair-reduction__intro">
+            <p class="eyebrow">Laser Hair Reduction</p>
+            <h2 id="hair-reduction-heading">Treatment, tailored by area.</h2>
+            <p>Laser hair reduction can be customized to individual treatment areas or multiple areas based on your goals and treatment plan.</p>
+          </div>
+
+          <div class="container hair-directory" aria-label="Laser hair reduction treatment areas">
+            <section class="hair-directory__group">
+              <h3>Face</h3>
+              <ul>
+                <li>Upper Lip</li>
+                <li>Chin</li>
+                <li>Upper Lip & Chin Combo</li>
+                <li>Sideburns/Cheeks</li>
+              </ul>
+            </section>
+            <section class="hair-directory__group">
+              <h3>Upper Body</h3>
+              <ul>
+                <li>Underarms</li>
+                <li>Forearms</li>
+                <li>Upper Arms</li>
+                <li>Full Arms</li>
+                <li>Full Back</li>
+                <li>Chest & Abdomen</li>
+              </ul>
+            </section>
+            <section class="hair-directory__group">
+              <h3>Bikini</h3>
+              <ul>
+                <li>Basic Bikini Line</li>
+                <li>Extended Bikini Line</li>
+                <li>Full Brazilian</li>
+              </ul>
+            </section>
+            <section class="hair-directory__group">
+              <h3>Lower Body</h3>
+              <ul>
+                <li>Upper Legs</li>
+                <li>Lower Legs (Includes Knees)</li>
+                <li>Feet</li>
+                <li>Toes</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="container hair-essentials">
+            <span>Full Body Essentials</span>
+            <p>Underarms, Full Brazilian & Lower Legs</p>
+          </div>
+        </section>
+
+        <section class="body-planning section--cream" aria-labelledby="planning-heading">
+          <div class="container body-planning__layout">
+            <div class="body-planning__intro">
+              <p class="eyebrow">Your Treatment Plan</p>
+              <h2 id="planning-heading">Different areas. Different needs.</h2>
+              <p>Treatment planning can vary based on the treatment area, individual characteristics, previous treatment history, goals, and response to treatment.</p>
+            </div>
+            <div class="body-steps">
+              <article>
+                <span>01</span>
+                <h3>Assess.</h3>
+                <p>Understand the treatment area and individual goals.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Treat.</h3>
+                <p>Select an appropriate treatment approach based on the assessment.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Reassess.</h3>
+                <p>Evaluate response and adjust the treatment plan when appropriate.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="body-final">
+          <div class="container body-final__inner">
+            <h2>Ready to discuss your treatment goals?</h2>
+            <a class="btn btn--champagne" href="#appointment-unconfirmed">Request a Consultation <span aria-hidden="true">-&gt;</span></a>
           </div>
         </section>
       </main>
