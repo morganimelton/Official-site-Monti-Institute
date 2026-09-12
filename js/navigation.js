@@ -18,7 +18,7 @@ function closeMenu() {
 
 function toggleMenu() {
   const isOpen = header?.classList.toggle("is-open");
-  document.body.classList.toggle("nav-locked", Boolean(isOpen));
+  document.body.classList.toggle("nav-locked", Boolean(isOpen) && !mobileNavQuery.matches);
   menuToggle?.setAttribute("aria-expanded", String(Boolean(isOpen)));
 }
 
