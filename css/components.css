@@ -617,7 +617,7 @@ body.has-site-notice .site-header {
   border-color: rgba(255, 255, 255, 0.78);
   background:
     linear-gradient(180deg, rgba(2, 11, 22, 0.08), rgba(2, 11, 22, 0.78)),
-    var(--tile-image) center / cover;
+    var(--tile-image) var(--tile-position, center) / cover;
   box-shadow: none;
   color: var(--monti-text-on-dark);
 }
