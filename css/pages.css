@@ -245,7 +245,7 @@
   inset: 0 0 0 34%;
   background-image:
     linear-gradient(90deg, var(--monti-cream), rgba(244, 239, 229, 0.62) 18%, rgba(244, 239, 229, 0.04) 48%),
-    url("../assets/images/monti-water-feature.png");
+    url("../assets/images/monti-lobby-memberships.png");
   background-position: center;
   background-size: cover;
 }
@@ -269,8 +269,8 @@
 
 .experience-feature__image {
   min-height: 380px;
-  background-image: url("../assets/images/monti-reception.png");
-  background-position: center;
+  background-image: url("../assets/images/monti-waiting-room-experience.png");
+  background-position: 45% center;
   background-size: cover;
 }
 
@@ -501,7 +501,7 @@
     order: 2;
     background-image:
       linear-gradient(180deg, rgba(244, 239, 229, 0.02), rgba(244, 239, 229, 0.18)),
-    url("../assets/images/monti-water-feature.png");
+    url("../assets/images/monti-lobby-memberships.png");
   }
 
   .membership-feature__inner {
