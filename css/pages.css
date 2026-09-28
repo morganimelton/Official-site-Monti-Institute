@@ -8,7 +8,7 @@
   overflow: hidden;
   padding: 140px 0 34px;
   background:
-    radial-gradient(ellipse at 50% 39%, rgba(255, 253, 248, 1) 0%, rgba(255, 253, 248, 1) 32%, rgba(249, 245, 237, 0.98) 45%, rgba(244, 239, 229, 0.92) 58%, rgba(244, 239, 229, 0.72) 100%),
+    radial-gradient(ellipse at 50% 42%, rgba(255, 253, 248, 1) 0%, rgba(255, 253, 248, 1) 31%, rgba(249, 245, 237, 0.98) 45%, rgba(244, 239, 229, 0.9) 60%, rgba(244, 239, 229, 0.68) 100%),
     linear-gradient(90deg, var(--monti-cream) 0%, var(--monti-ivory) 33%, var(--monti-ivory) 67%, var(--monti-cream) 100%);
 }
 
@@ -16,35 +16,64 @@
   position: absolute;
   top: 104px;
   bottom: 0;
-  width: 36%;
-  background-position: center;
-  background-size: cover;
+  width: 43%;
+  overflow: hidden;
   opacity: 1;
+}
+
+.home-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-hero__image::before,
+.home-hero__image::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  content: "";
 }
 
 .home-hero__image--left {
   left: 0;
-  background-image:
-    linear-gradient(90deg, rgba(244, 239, 229, 0) 0%, rgba(244, 239, 229, 0) 48%, rgba(255, 253, 248, 0.66) 76%, rgba(255, 253, 248, 1) 100%),
-    linear-gradient(180deg, rgba(255, 253, 248, 0.7) 0%, rgba(255, 253, 248, 0.24) 34%, rgba(255, 253, 248, 0) 66%),
-    url("../assets/images/monti-water-feature.png");
-  background-position: center left;
+}
+
+.home-hero__image--left img {
+  object-position: 42% 46%;
+}
+
+.home-hero__image--left::before {
+  background: linear-gradient(90deg, rgba(255, 253, 248, 0.02) 0%, rgba(255, 253, 248, 0.18) 38%, rgba(255, 253, 248, 0.76) 72%, rgba(255, 253, 248, 1) 100%);
+}
+
+.home-hero__image--left::after {
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.68) 0%, rgba(255, 253, 248, 0.18) 34%, rgba(255, 253, 248, 0.02) 72%);
 }
 
 .home-hero__image--right {
   right: 0;
-  background-image:
-    linear-gradient(270deg, rgba(244, 239, 229, 0) 0%, rgba(244, 239, 229, 0) 48%, rgba(255, 253, 248, 0.68) 76%, rgba(255, 253, 248, 1) 100%),
-    linear-gradient(180deg, rgba(255, 253, 248, 0.48) 0%, rgba(255, 253, 248, 0.12) 38%, rgba(255, 253, 248, 0) 68%),
-    url("../assets/images/monti-reception.png");
-  background-position: center right;
+}
+
+.home-hero__image--right img {
+  object-position: 58% 58%;
+}
+
+.home-hero__image--right::before {
+  background: linear-gradient(270deg, rgba(255, 253, 248, 0.03) 0%, rgba(255, 253, 248, 0.16) 40%, rgba(255, 253, 248, 0.76) 73%, rgba(255, 253, 248, 1) 100%);
+}
+
+.home-hero__image--right::after {
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.48) 0%, rgba(255, 253, 248, 0.14) 38%, rgba(255, 253, 248, 0.02) 72%);
 }
 
 .home-hero__wash {
   position: absolute;
   inset: 104px 0 0;
   background:
-    linear-gradient(90deg, rgba(255, 253, 248, 0) 0%, rgba(255, 253, 248, 0.56) 32%, rgba(255, 253, 248, 0.8) 50%, rgba(255, 253, 248, 0.56) 68%, rgba(255, 253, 248, 0) 100%),
+    radial-gradient(ellipse at 50% 42%, rgba(255, 253, 248, 0.98) 0%, rgba(255, 253, 248, 0.94) 31%, rgba(255, 253, 248, 0.68) 48%, rgba(255, 253, 248, 0.18) 72%, rgba(255, 253, 248, 0) 100%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0) 0%, rgba(255, 253, 248, 0.72) 32%, rgba(255, 253, 248, 0.96) 50%, rgba(255, 253, 248, 0.72) 68%, rgba(255, 253, 248, 0) 100%),
     linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(244, 239, 229, 0.08) 72%, rgba(244, 239, 229, 0.18));
   pointer-events: none;
 }
@@ -61,7 +90,7 @@
 
 .home-hero h1 {
   max-width: 540px;
-  font-size: clamp(2.75rem, 4.35vw, 4.65rem);
+  font-size: clamp(2.62rem, 4.08vw, 4.34rem);
   line-height: 1.02;
 }
 
@@ -364,7 +393,9 @@
 
   .home-hero__mobile-image {
     width: 100%;
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
     margin-top: 12px;
     overflow: hidden;
     border-radius: var(--radius-md);
@@ -374,8 +405,16 @@
     width: 100%;
     min-height: 220px;
     max-height: 310px;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
+  }
+
+  .home-hero__mobile-image img:first-child {
+    object-position: 44% 46%;
+  }
+
+  .home-hero__mobile-image img:last-child {
+    object-position: 58% 55%;
   }
 
   .care-showcase__intro,
