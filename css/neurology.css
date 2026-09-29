@@ -11,11 +11,17 @@
 }
 
 .neurology-hero {
-  padding: calc(var(--header-height) + 112px) 0 84px;
+  padding: calc(var(--header-height) + 82px) 0 78px;
 }
 
 .neurology-hero__inner {
-  max-width: 880px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(420px, 0.88fr);
+  align-items: center;
+  gap: clamp(44px, 6vw, 92px);
+}
+
+.neurology-hero__copy {
   display: grid;
   gap: 20px;
 }
@@ -30,6 +36,36 @@
   color: var(--monti-text);
   font-size: clamp(1.05rem, 1.35vw, 1.24rem);
   line-height: 1.62;
+}
+
+.neurology-hero__media,
+.neurology-photo-break__media,
+.neurology-relief__media {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(199, 161, 90, 0.28);
+  border-radius: var(--radius-md);
+  background: var(--monti-ivory);
+}
+
+.neurology-hero__media {
+  min-height: clamp(430px, 42vw, 620px);
+}
+
+.neurology-hero__media img,
+.neurology-photo-break__media img,
+.neurology-relief__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.neurology-hero__media img {
+  object-position: 58% center;
 }
 
 .neurology-section {
@@ -84,11 +120,23 @@
   padding: 0 0 26px 88px;
 }
 
+.neurology-photo-break {
+  padding-block: 0 clamp(76px, 7vw, 108px);
+}
+
+.neurology-photo-break__media {
+  min-height: clamp(260px, 28vw, 420px);
+}
+
+.neurology-photo-break__media img {
+  object-position: 50% 46%;
+}
+
 .neurology-access {
   border-block: 1px solid rgba(199, 161, 90, 0.34);
   background:
-    linear-gradient(90deg, rgba(250, 247, 239, 0.98), rgba(246, 240, 228, 0.92)),
-    var(--monti-cream);
+    linear-gradient(135deg, rgba(7, 26, 51, 0.98), rgba(2, 11, 22, 1)),
+    var(--monti-midnight);
   padding-block: clamp(58px, 6vw, 86px);
 }
 
@@ -100,7 +148,12 @@
 }
 
 .neurology-access h2 {
+  color: var(--monti-text-on-dark);
   font-size: clamp(2rem, 3.6vw, 3.8rem);
+}
+
+.neurology-access .eyebrow {
+  color: var(--monti-gold-soft);
 }
 
 .neurology-access__copy {
@@ -110,7 +163,7 @@
 }
 
 .neurology-access__copy p {
-  color: var(--monti-text);
+  color: rgba(255, 253, 248, 0.82);
 }
 
 .neurology-treatment-column {
@@ -125,6 +178,30 @@
   color: var(--monti-muted);
   font-size: 0.95rem;
   line-height: 1.62;
+}
+
+.neurology-relief__layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.78fr) minmax(0, 0.92fr);
+  gap: clamp(42px, 6vw, 86px);
+  align-items: center;
+}
+
+.neurology-relief__media {
+  min-height: clamp(360px, 37vw, 560px);
+}
+
+.neurology-relief__media img {
+  object-position: center;
+}
+
+.neurology-relief__content {
+  display: grid;
+  gap: clamp(32px, 4vw, 48px);
+}
+
+.neurology-relief__content .neurology-section__intro {
+  max-width: 640px;
 }
 
 .neurology-final {
@@ -153,6 +230,15 @@
     padding-top: calc(var(--header-height) + 88px);
   }
 
+  .neurology-hero__inner,
+  .neurology-relief__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .neurology-hero__media {
+    min-height: 420px;
+  }
+
   .neurology-section__layout,
   .neurology-access__inner {
     grid-template-columns: 1fr;
@@ -176,8 +262,16 @@
     gap: 16px;
   }
 
+  .neurology-hero__copy {
+    gap: 16px;
+  }
+
   .neurology-hero h1 {
     font-size: clamp(2.65rem, 13vw, 4rem);
+  }
+
+  .neurology-hero__media {
+    min-height: 340px;
   }
 
   .neurology-section {
@@ -224,6 +318,15 @@
 
   .neurology-note {
     margin-top: 22px;
+  }
+
+  .neurology-photo-break {
+    padding-block: 0 58px;
+  }
+
+  .neurology-photo-break__media,
+  .neurology-relief__media {
+    min-height: 260px;
   }
 
   .neurology-final {
