@@ -105,7 +105,7 @@
   min-height: 420px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center;
+  object-position: 58% center;
 }
 
 .aesthetics-treatments {
@@ -172,7 +172,7 @@
   width: 100%;
   aspect-ratio: 4 / 5.4;
   object-fit: cover;
-  object-position: center;
+  object-position: 58% center;
   filter: saturate(0.92);
 }
 
@@ -235,7 +235,7 @@
   inset: 0;
   background:
     linear-gradient(90deg, rgba(2, 11, 22, 0.98) 0%, rgba(7, 26, 51, 0.9) 40%, rgba(7, 26, 51, 0.55) 100%),
-    url("../assets/images/monti-treatment-suite.png") center / cover;
+    url("../assets/images/home-skin-laser.png") center / cover;
   content: "";
   opacity: 0.48;
 }
@@ -320,13 +320,7 @@
 }
 
 .aesthetics-final::before {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(2, 11, 22, 0.88), rgba(2, 11, 22, 0.72)),
-    url("../assets/images/monti-aesthetic-suite.png") center / cover;
-  content: "";
-  opacity: 0.24;
+  content: none;
 }
 
 .aesthetics-final::after {
