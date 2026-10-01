@@ -41,7 +41,7 @@
 
 .providers-hero__portraits {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(9, minmax(0, 1fr));
   gap: 5px;
 }
 
@@ -59,8 +59,12 @@
 
 .providers-hero__portraits img:nth-child(3),
 .providers-hero__portraits img:nth-child(5),
-.providers-hero__portraits img:nth-child(6) {
+.providers-hero__portraits img:nth-child(8) {
   object-position: 50% 16%;
+}
+
+.providers-hero__portraits img:nth-child(9) {
+  object-position: 62% 16%;
 }
 
 .provider-directory {
@@ -179,7 +183,7 @@
   }
 
   .providers-hero__portraits {
-    grid-template-columns: repeat(6, minmax(86px, 1fr));
+    grid-template-columns: repeat(9, minmax(86px, 1fr));
     gap: 4px;
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);

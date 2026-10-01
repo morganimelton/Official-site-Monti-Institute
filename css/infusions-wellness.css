@@ -66,6 +66,7 @@
   display: grid;
   gap: 18px;
   max-width: min(720px, 58vw);
+  margin-left: clamp(22px, 3vw, 44px);
 }
 
 .infusion-hero__content::before {
@@ -119,7 +120,7 @@
   display: grid;
   grid-template-columns: minmax(260px, 0.34fr) minmax(0, 0.8fr);
   gap: clamp(30px, 5vw, 84px);
-  align-items: end;
+  align-items: start;
 }
 
 .infusion-therapy__intro h2 {
@@ -132,7 +133,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(310px, 0.42fr);
   gap: clamp(26px, 4vw, 54px);
-  align-items: start;
+  align-items: stretch;
+}
+
+.infusion-directory__group {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .infusion-directory__label {
@@ -177,6 +183,8 @@
 
 .neurological-infusions {
   position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
   padding: clamp(26px, 3.6vw, 42px);
   background:
     radial-gradient(circle at 88% 10%, rgba(199, 161, 90, 0.15), transparent 32%),
@@ -215,6 +223,7 @@
   position: relative;
   z-index: 1;
   display: grid;
+  align-content: space-evenly;
   gap: 30px;
 }
 
@@ -412,6 +421,10 @@
     max-width: min(680px, 78vw);
   }
 
+  .neurological-infusions__items {
+    align-content: start;
+  }
+
   .support-board {
     max-width: 900px;
   }
@@ -435,6 +448,7 @@
 
   .infusion-hero__content {
     max-width: 100%;
+    margin-left: 0;
     gap: 15px;
   }
 
