@@ -12,36 +12,60 @@
 
 .infusion-hero {
   position: relative;
+  min-height: clamp(640px, 82vh, 900px);
+  display: flex;
+  align-items: flex-end;
   overflow: hidden;
-  padding: calc(var(--header-height) + 72px) 0 clamp(72px, 8vw, 112px);
+  padding: clamp(96px, 14vh, 150px) 0 clamp(64px, 8vh, 96px);
+  background: var(--monti-midnight);
+  color: var(--monti-text-on-dark);
+  isolation: isolate;
+}
+
+.infusion-hero::before,
+.infusion-hero::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.infusion-hero::before {
+  inset: 0;
+  z-index: -1;
   background:
-    radial-gradient(circle at 16% 18%, rgba(199, 161, 90, 0.11), transparent 28%),
-    linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(244, 239, 229, 0.88)),
-    var(--monti-ivory);
+    linear-gradient(90deg, rgba(2, 11, 22, 0.96) 0%, rgba(7, 26, 51, 0.88) 26%, rgba(7, 26, 51, 0.46) 48%, rgba(7, 26, 51, 0.08) 72%, rgba(7, 26, 51, 0) 100%),
+    linear-gradient(0deg, rgba(2, 11, 22, 0.5) 0%, rgba(2, 11, 22, 0.12) 34%, rgba(2, 11, 22, 0) 64%);
 }
 
 .infusion-hero::after {
-  position: absolute;
   inset: auto 0 0;
+  z-index: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(199, 161, 90, 0.54), transparent);
-  content: "";
+  background: linear-gradient(90deg, rgba(199, 161, 90, 0.68), rgba(225, 201, 144, 0.18), transparent);
+}
+
+.infusion-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 52% center;
 }
 
 .infusion-hero__inner {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(360px, 0.78fr) minmax(420px, 0.9fr);
-  gap: clamp(34px, 6vw, 92px);
-  align-items: center;
+  width: 100%;
 }
 
 .infusion-hero__content {
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 20px;
-  max-width: 720px;
+  gap: 18px;
+  max-width: min(720px, 58vw);
 }
 
 .infusion-hero__content::before {
@@ -55,42 +79,31 @@
 
 .infusion-hero h1 {
   max-width: 720px;
-  font-size: clamp(3.2rem, 6.4vw, 7.35rem);
-  line-height: 0.9;
+  color: var(--monti-text-on-dark);
+  font-size: clamp(3.35rem, 6.2vw, 7rem);
+  line-height: 0.88;
 }
 
 .infusion-hero p:not(.eyebrow) {
-  max-width: 640px;
-  color: var(--monti-text);
+  max-width: 590px;
+  color: rgba(248, 244, 236, 0.86);
   font-size: clamp(1.02rem, 1.24vw, 1.18rem);
   line-height: 1.64;
 }
 
-.infusion-hero__media {
-  position: relative;
-  min-height: clamp(420px, 45vw, 650px);
-  margin: 0;
-  overflow: hidden;
+.infusion-hero__scroll {
+  width: fit-content;
+  margin-top: 8px;
+  color: var(--monti-gold-soft);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
-.infusion-hero__media::before {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(90deg, var(--monti-ivory) 0%, rgba(255, 253, 248, 0.78) 12%, rgba(255, 253, 248, 0.14) 36%, rgba(255, 253, 248, 0) 60%),
-    linear-gradient(0deg, var(--monti-ivory) 0%, rgba(255, 253, 248, 0.36) 12%, rgba(255, 253, 248, 0) 34%);
-  content: "";
-  pointer-events: none;
-}
-
-.infusion-hero__media img {
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  display: block;
-  object-fit: cover;
-  object-position: center;
+.infusion-hero__scroll span {
+  display: inline-block;
+  margin-left: 6px;
 }
 
 .infusion-therapy {
@@ -385,7 +398,6 @@
 }
 
 @media (max-width: 1120px) {
-  .infusion-hero__inner,
   .infusion-directory,
   .targeted-support__layout,
   .massage-therapy__inner {
@@ -396,8 +408,8 @@
     grid-template-columns: 1fr;
   }
 
-  .infusion-hero__media {
-    min-height: clamp(360px, 48vw, 520px);
+  .infusion-hero__content {
+    max-width: min(680px, 78vw);
   }
 
   .support-board {
@@ -407,11 +419,23 @@
 
 @media (max-width: 767px) {
   .infusion-hero {
-    padding: calc(var(--header-height) + 42px) 0 58px;
+    min-height: min(760px, 86vh);
+    padding: clamp(120px, 22vh, 190px) 0 52px;
   }
 
-  .infusion-hero__inner {
-    gap: 30px;
+  .infusion-hero::before {
+    background:
+      linear-gradient(90deg, rgba(2, 11, 22, 0.98) 0%, rgba(7, 26, 51, 0.92) 42%, rgba(7, 26, 51, 0.42) 74%, rgba(7, 26, 51, 0.08) 100%),
+      linear-gradient(0deg, rgba(2, 11, 22, 0.58) 0%, rgba(2, 11, 22, 0.2) 42%, rgba(2, 11, 22, 0) 72%);
+  }
+
+  .infusion-hero__image {
+    object-position: 42% center;
+  }
+
+  .infusion-hero__content {
+    max-width: 100%;
+    gap: 15px;
   }
 
   .infusion-hero h1,
@@ -422,14 +446,10 @@
     font-size: clamp(2.35rem, 10.8vw, 3.75rem);
   }
 
-  .infusion-hero__media {
-    min-height: 280px;
-  }
-
-  .infusion-hero__media::before {
-    background:
-      linear-gradient(180deg, var(--monti-ivory) 0%, rgba(255, 253, 248, 0.16) 28%, rgba(255, 253, 248, 0) 64%),
-      linear-gradient(0deg, var(--monti-ivory) 0%, rgba(255, 253, 248, 0.32) 14%, rgba(255, 253, 248, 0) 42%);
+  .infusion-hero p:not(.eyebrow) {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.58;
   }
 
   .infusion-therapy,

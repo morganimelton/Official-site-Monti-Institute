@@ -167,6 +167,50 @@
           </div>
         </section>
 
+        <section class="about-gallery section--ivory" aria-labelledby="inside-monti-heading">
+          <div class="container about-gallery__intro reveal">
+            <div>
+              <p class="eyebrow">Inside Monti</p>
+              <h2 id="inside-monti-heading">A space designed around your care.</h2>
+            </div>
+            <p>A considered environment where neurological medicine, aesthetics, and wellness come together.</p>
+          </div>
+
+          <div class="about-gallery__shell reveal" aria-label="Inside Monti photo gallery">
+            <p class="about-gallery__hint">Drag to explore <span aria-hidden="true">-&gt;</span></p>
+            <div class="about-gallery__track" data-about-gallery-track tabindex="0">
+              <button class="about-gallery__item about-gallery__item--entrance" type="button" data-gallery-index="0" aria-label="Open photo of the Monti Institute entrance wall">
+                <img src="assets/images/about-gallery-entrance.jpg" alt="Monti Institute stone entrance wall with illuminated gold logo" loading="lazy">
+              </button>
+              <button class="about-gallery__item about-gallery__item--lounge" type="button" data-gallery-index="1" aria-label="Open photo of the Monti lounge">
+                <img src="assets/images/about-gallery-blue-lounge.jpg" alt="Blue curved couch lounge with white chair and Tahoe artwork" loading="lazy">
+              </button>
+              <button class="about-gallery__item about-gallery__item--infusion" type="button" data-gallery-index="2" aria-label="Open photo of the infusion room">
+                <img src="assets/images/about-gallery-infusion-room.jpg" alt="Symmetrical infusion room with white recliners and warm architectural details" loading="lazy">
+              </button>
+              <button class="about-gallery__item about-gallery__item--waiting" type="button" data-gallery-index="3" aria-label="Open photo of the waiting area">
+                <img src="assets/images/about-gallery-waiting-room.jpg" alt="Main waiting area with tan leather couches, plants, and gold table" loading="lazy">
+              </button>
+              <button class="about-gallery__item about-gallery__item--aesthetic" type="button" data-gallery-index="4" aria-label="Open photo of the aesthetic treatment room">
+                <img src="assets/images/about-gallery-aesthetic-suite.jpg" alt="Aesthetic treatment room with white treatment chair, navy cabinetry, mirror, and wave artwork" loading="lazy">
+              </button>
+              <button class="about-gallery__item about-gallery__item--skin" type="button" data-gallery-index="5" aria-label="Open photo of the skin and laser treatment room">
+                <img src="assets/images/about-gallery-skin-laser-suite.jpg" alt="Treatment room with white chair, clinical equipment, and Tahoe artwork" loading="lazy">
+              </button>
+              <button class="about-gallery__item about-gallery__item--neurology" type="button" data-gallery-index="6" aria-label="Open photo of the neurology treatment room">
+                <img src="assets/images/about-gallery-neurology-suite.jpg" alt="Treatment room with black chair, navy cabinetry, and Tahoe artwork" loading="lazy">
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div class="about-lightbox" data-about-lightbox hidden>
+          <button class="about-lightbox__close" type="button" data-lightbox-close aria-label="Close gallery">&times;</button>
+          <button class="about-lightbox__nav about-lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Previous image">Previous</button>
+          <img class="about-lightbox__image" src="" alt="" data-lightbox-image>
+          <button class="about-lightbox__nav about-lightbox__nav--next" type="button" data-lightbox-next aria-label="Next image">Next</button>
+        </div>
+
         <section class="about-final section--navy">
           <div class="container about-final__inner reveal">
             <a class="btn btn--champagne" href="care.html">Explore Our Care <span aria-hidden="true">-&gt;</span></a>
@@ -225,5 +269,6 @@
     </div>
 
     <script type="module" src="js/site.js"></script>
+    <script src="js/about-gallery.js?v=inside-monti" defer></script>
   </body>
 </html>

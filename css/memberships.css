@@ -64,6 +64,12 @@
   text-align: center;
 }
 
+@media (min-width: 1181px) {
+  .membership-hero__inner {
+    left: -24px;
+  }
+}
+
 .membership-kicker {
   color: #dfc37f;
   font-family: var(--font-heading);
