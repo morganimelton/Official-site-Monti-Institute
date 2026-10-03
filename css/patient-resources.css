@@ -1,0 +1,527 @@
+.patient-resources-page {
+  background: var(--monti-ivory);
+}
+
+.patient-resources-page .btn--champagne {
+  border-color: rgba(177, 127, 53, 0.54);
+  background:
+    linear-gradient(135deg, #f4e2b0 0%, var(--monti-gold-soft) 38%, #c99a45 100%);
+  color: var(--monti-midnight);
+  box-shadow: none;
+}
+
+.patient-resources-page :target {
+  scroll-margin-top: calc(var(--header-height) + var(--site-notice-height, 0px) + 28px);
+}
+
+.resources-intro {
+  padding: calc(var(--header-height) + 64px) 0 42px;
+  border-bottom: 1px solid rgba(199, 161, 90, 0.22);
+}
+
+.resources-intro__inner {
+  display: grid;
+  gap: 20px;
+}
+
+.resources-intro h1 {
+  max-width: 760px;
+  font-size: clamp(2.75rem, 5vw, 3.5rem);
+  line-height: 1.02;
+}
+
+.resources-jump {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 0;
+  padding-top: 4px;
+}
+
+.resources-jump a {
+  color: var(--monti-navy);
+  font-size: 0.73rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.resources-jump a:not(:last-child)::after {
+  content: "/";
+  margin: 0 12px;
+  color: var(--monti-gold);
+  font-weight: 500;
+}
+
+.visit-section {
+  padding: clamp(48px, 6vw, 78px) 0;
+}
+
+.visit-section__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.86fr);
+  gap: clamp(34px, 6vw, 84px);
+  align-items: start;
+}
+
+.visit-section__media {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.visit-section__media img {
+  width: 100%;
+  aspect-ratio: 1.35 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.visit-section__content,
+.insurance-block,
+.forms-section__copy,
+.faq-section__intro {
+  display: grid;
+  gap: 16px;
+}
+
+.visit-section__content h2,
+.insurance-block h2,
+.forms-section h2,
+.faq-section h2,
+.contact-strip h2 {
+  font-size: clamp(2rem, 3.2vw, 3.35rem);
+}
+
+.visit-address {
+  display: grid;
+  gap: 2px;
+  color: var(--monti-text);
+  font-style: normal;
+  line-height: 1.55;
+}
+
+.visit-address strong {
+  color: var(--monti-navy);
+}
+
+.visit-section__directions {
+  justify-self: start;
+  margin: 2px 0 6px;
+}
+
+.visit-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  border-top: 1px solid rgba(199, 161, 90, 0.46);
+  border-bottom: 1px solid rgba(199, 161, 90, 0.46);
+}
+
+.visit-details > div {
+  padding: 18px 0;
+}
+
+.visit-details > div:nth-child(2) {
+  border-left: 1px solid rgba(199, 161, 90, 0.28);
+  padding-left: 28px;
+}
+
+.visit-details h3,
+.plans-block h3,
+.insurance-notes h3,
+.payment-list h3 {
+  color: var(--monti-gold);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.visit-details p,
+.entry-list,
+.contact-line a {
+  color: var(--monti-text);
+}
+
+.visit-details__wide {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(199, 161, 90, 0.28);
+}
+
+.entry-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.entry-list div {
+  display: grid;
+  gap: 2px;
+}
+
+.entry-list dt {
+  color: var(--monti-navy);
+  font-weight: 850;
+}
+
+.entry-list dd {
+  color: var(--monti-muted);
+}
+
+.visit-details__wide .fine-print {
+  margin-top: 12px;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  font-weight: 800;
+}
+
+.appointments-strip {
+  padding: clamp(36px, 4vw, 56px) 0;
+}
+
+.appointments-strip .eyebrow,
+.contact-strip .eyebrow,
+.payment-panel .eyebrow {
+  color: var(--monti-gold-soft);
+}
+
+.appointments-strip h2,
+.appointments-strip p,
+.contact-strip h2,
+.contact-strip a,
+.payment-panel h2,
+.payment-panel p {
+  color: var(--monti-text-on-dark);
+}
+
+.appointments-strip__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1fr);
+  gap: clamp(28px, 6vw, 82px);
+  align-items: center;
+}
+
+.appointments-strip h2 {
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+}
+
+.appointments-strip__body {
+  display: grid;
+  gap: 18px;
+}
+
+.appointments-strip__body > p {
+  max-width: 680px;
+}
+
+.appointments-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.policy-note {
+  border-top: 1px solid rgba(225, 201, 144, 0.28);
+  padding-top: 14px;
+  font-size: 0.86rem;
+}
+
+.policy-note strong {
+  color: var(--monti-gold-soft);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.insurance-payment {
+  padding: clamp(54px, 7vw, 92px) 0;
+}
+
+.insurance-payment__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.68fr) minmax(330px, 0.32fr);
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+}
+
+.insurance-block > p {
+  max-width: 790px;
+}
+
+.plans-block {
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(199, 161, 90, 0.46);
+}
+
+.plans-list {
+  columns: 3 170px;
+  column-gap: clamp(24px, 4vw, 52px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plans-list li {
+  break-inside: avoid;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(199, 161, 90, 0.2);
+  color: var(--monti-text);
+  font-size: 0.96rem;
+}
+
+.insurance-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(199, 161, 90, 0.46);
+}
+
+.insurance-notes div {
+  display: grid;
+  gap: 9px;
+}
+
+.insurance-disclaimer {
+  max-width: 760px;
+  margin-top: 4px;
+}
+
+.payment-panel {
+  display: grid;
+  gap: 18px;
+  border-radius: var(--radius-sm);
+  padding: clamp(26px, 3vw, 36px);
+  background: var(--gradient-navy);
+}
+
+.payment-panel h2 {
+  font-size: clamp(1.9rem, 2.6vw, 2.75rem);
+}
+
+.payment-list {
+  display: grid;
+  border-top: 1px solid rgba(225, 201, 144, 0.28);
+}
+
+.payment-list > div {
+  display: grid;
+  gap: 8px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(225, 201, 144, 0.28);
+}
+
+.payment-list h3 {
+  color: var(--monti-gold-soft);
+}
+
+.payment-panel .btn {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.forms-section {
+  padding: clamp(42px, 5vw, 68px) 0;
+}
+
+.forms-section__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.56fr) minmax(360px, 0.7fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+.forms-section__copy {
+  border-top: 1px solid rgba(199, 161, 90, 0.46);
+  padding-top: 18px;
+}
+
+.download-list {
+  display: grid;
+  border-top: 1px solid rgba(199, 161, 90, 0.46);
+}
+
+.download-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(199, 161, 90, 0.28);
+  color: var(--monti-navy);
+}
+
+.download-row strong {
+  color: var(--monti-gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.faq-section {
+  padding: clamp(52px, 6vw, 82px) 0;
+}
+
+.faq-section__grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(30px, 5vw, 76px);
+  align-items: start;
+}
+
+.resources-faq .treatment-row__trigger {
+  grid-template-columns: 48px minmax(0, 1fr) 28px;
+  gap: 18px;
+  padding: 18px 0;
+}
+
+.resources-faq .treatment-row__title {
+  font-size: clamp(1.16rem, 1.5vw, 1.55rem);
+}
+
+.resources-faq .treatment-row__content {
+  max-width: 760px;
+  padding: 0 0 22px 66px;
+}
+
+.contact-strip {
+  padding: clamp(32px, 4vw, 52px) 0;
+}
+
+.contact-strip__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) auto auto;
+  gap: 22px;
+  align-items: center;
+}
+
+.contact-strip h2 {
+  font-size: clamp(1.7rem, 2.5vw, 2.65rem);
+}
+
+.contact-strip__links {
+  display: grid;
+  gap: 5px;
+  color: var(--monti-text-on-dark);
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .visit-section__grid,
+  .insurance-payment__grid,
+  .forms-section__inner,
+  .faq-section__grid,
+  .appointments-strip__inner,
+  .contact-strip__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-section__media img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .payment-panel {
+    max-width: 720px;
+  }
+
+  .contact-strip__inner {
+    justify-items: start;
+  }
+}
+
+@media (max-width: 767px) {
+  .resources-intro {
+    padding: calc(var(--header-height) + 44px) 0 32px;
+  }
+
+  .resources-intro h1 {
+    font-size: clamp(2.35rem, 11vw, 3.15rem);
+  }
+
+  .resources-jump {
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .resources-jump::-webkit-scrollbar {
+    display: none;
+  }
+
+  .resources-jump a {
+    flex: 0 0 auto;
+  }
+
+  .visit-section,
+  .insurance-payment,
+  .faq-section {
+    padding: 42px 0;
+  }
+
+  .visit-section__grid,
+  .insurance-payment__grid,
+  .forms-section__inner,
+  .faq-section__grid,
+  .appointments-strip__inner {
+    gap: 28px;
+  }
+
+  .visit-details,
+  .entry-list,
+  .insurance-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-details > div:nth-child(2) {
+    border-top: 1px solid rgba(199, 161, 90, 0.28);
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .appointments-actions,
+  .appointments-actions .btn,
+  .contact-strip .btn {
+    width: 100%;
+  }
+
+  .plans-list {
+    columns: 2 130px;
+  }
+
+  .resources-faq .treatment-row__trigger {
+    grid-template-columns: 1fr 28px;
+    gap: 12px;
+  }
+
+  .resources-faq .treatment-row__category {
+    grid-column: 1 / -1;
+  }
+
+  .resources-faq .treatment-row__content {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .plans-list {
+    columns: 1;
+  }
+
+  .patient-resources-page .btn {
+    width: 100%;
+  }
+}
