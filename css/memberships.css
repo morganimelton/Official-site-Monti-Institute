@@ -11,7 +11,7 @@
   padding: calc(var(--header-height) + 72px) 0 118px;
   background:
     radial-gradient(circle at 50% 20%, rgba(225, 201, 144, 0.2), transparent 28%),
-    radial-gradient(circle at 74% 54%, rgba(199, 161, 90, 0.13), transparent 34%),
+    radial-gradient(circle at 50% 56%, rgba(199, 161, 90, 0.13), transparent 34%),
     linear-gradient(145deg, #020a15 0%, #071a33 47%, #020b16 100%);
   color: var(--monti-text-on-dark);
   isolation: isolate;
@@ -30,7 +30,9 @@
   aspect-ratio: 1;
   border: 1px solid rgba(225, 201, 144, 0.16);
   border-radius: 50%;
-  transform: rotate(-18deg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -49%) rotate(-18deg);
 }
 
 .membership-hero::after {
@@ -44,7 +46,6 @@
 
 .membership-hero__ornament {
   position: absolute;
-  inset: auto auto 8% 8%;
   width: min(42vw, 440px);
   aspect-ratio: 1;
   border: 1px solid rgba(225, 201, 144, 0.13);
@@ -52,28 +53,26 @@
   box-shadow:
     0 0 90px rgba(199, 161, 90, 0.12),
     inset 0 0 70px rgba(199, 161, 90, 0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
 }
 
 .membership-hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 940px;
+  max-width: 1180px;
   display: grid;
   justify-items: center;
   gap: clamp(18px, 2vw, 28px);
   text-align: center;
 }
 
-@media (min-width: 1181px) {
-  .membership-hero__inner {
-    left: -24px;
-  }
-}
-
 .membership-kicker {
+  max-width: 100%;
   color: #dfc37f;
   font-family: var(--font-heading);
-  font-size: clamp(3.3rem, 8.6vw, 10rem);
+  font-size: clamp(3.3rem, 8.6vw, 9rem);
   letter-spacing: 0.08em;
   line-height: 0.86;
   text-transform: uppercase;
