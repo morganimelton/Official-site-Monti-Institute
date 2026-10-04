@@ -65,10 +65,10 @@ body.has-site-notice .site-header {
   z-index: 60;
   min-height: var(--header-height);
   --logo-cream-stop: clamp(350px, 25vw, 370px);
-  --logo-light-stop: clamp(398px, 29vw, 430px);
-  --logo-blend-stop: clamp(455px, 34vw, 500px);
-  --logo-soft-stop: clamp(520px, 39vw, 570px);
-  --logo-clear-stop: clamp(585px, 44vw, 640px);
+  --logo-light-stop: clamp(388px, 27vw, 405px);
+  --logo-blend-stop: clamp(410px, 28.8vw, 426px);
+  --logo-soft-stop: clamp(428px, 30vw, 438px);
+  --logo-clear-stop: clamp(440px, 30.8vw, 446px);
   border-bottom: 1px solid rgba(199, 161, 90, 0.28);
   color: var(--monti-text-on-dark);
   transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base), box-shadow var(--transition-base);
