@@ -64,10 +64,10 @@ body.has-site-notice .site-header {
   inset: 0 0 auto;
   z-index: 60;
   min-height: var(--header-height);
-  --logo-cream-stop: clamp(350px, 25vw, 370px);
-  --logo-light-stop: clamp(388px, 27vw, 405px);
-  --logo-blend-stop: clamp(410px, 28.8vw, 426px);
-  --logo-soft-stop: clamp(428px, 30vw, 438px);
+  --logo-cream-stop: clamp(292px, 20.8vw, 308px);
+  --logo-light-stop: clamp(330px, 23.2vw, 344px);
+  --logo-blend-stop: clamp(370px, 26vw, 384px);
+  --logo-soft-stop: clamp(410px, 28.6vw, 424px);
   --logo-clear-stop: clamp(440px, 30.8vw, 446px);
   border-bottom: 1px solid rgba(199, 161, 90, 0.28);
   color: var(--monti-text-on-dark);
@@ -80,8 +80,8 @@ body.has-site-notice .site-header {
       var(--monti-ivory) 0,
       var(--monti-ivory) var(--logo-cream-stop),
       rgba(255, 253, 248, 0.94) var(--logo-light-stop),
-      rgba(244, 239, 229, 0.66) var(--logo-blend-stop),
-      rgba(244, 239, 229, 0.28) var(--logo-soft-stop),
+      rgba(231, 235, 239, 0.72) var(--logo-blend-stop),
+      rgba(116, 132, 151, 0.34) var(--logo-soft-stop),
       rgba(244, 239, 229, 0) var(--logo-clear-stop)),
     linear-gradient(90deg,
       var(--monti-navy) 0%,
@@ -99,8 +99,8 @@ body.has-site-notice .site-header {
       var(--monti-ivory) 0,
       var(--monti-ivory) var(--logo-cream-stop),
       rgba(255, 253, 248, 0.94) var(--logo-light-stop),
-      rgba(244, 239, 229, 0.66) var(--logo-blend-stop),
-      rgba(244, 239, 229, 0.28) var(--logo-soft-stop),
+      rgba(231, 235, 239, 0.72) var(--logo-blend-stop),
+      rgba(116, 132, 151, 0.34) var(--logo-soft-stop),
       rgba(244, 239, 229, 0) var(--logo-clear-stop)),
     linear-gradient(90deg,
       rgba(7, 26, 51, 0.98) 0%,
