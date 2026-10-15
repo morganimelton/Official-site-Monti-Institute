@@ -1,0 +1,24 @@
+name: Validate GrandRanker RSS (read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r _blog/requirements.txt
+      - name: Run importer and validation tests
+        run: python -m unittest discover -s _blog/tests
+      - name: Validate feed without saving articles
+        env:
+          GRANDRANKER_RSS_URL: ${{ secrets.GRANDRANKER_RSS_URL }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python _blog/validate.py

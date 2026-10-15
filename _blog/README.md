@@ -85,11 +85,40 @@ deployment must explicitly exclude `_blog/` and `.github/` from its public artif
 
 ## Automation and deployment
 
+### Manual read-only validation
+
+The separate `.github/workflows/blog-validate.yml` workflow runs only through
+`workflow_dispatch`, with `contents: read` and no persisted checkout credentials.
+It does not depend on or change `BLOG_IMPORT_ENABLED`; leave that variable unset
+or `false`. The existing import workflow is unchanged.
+
+After the validation files are reviewed and merged onto the default branch, open
+Actions > Validate GrandRanker RSS (read-only) > Run workflow, select `main`, and
+run it. No write permissions or PR-creation setting are needed for this check.
+The `Validate feed without saving articles` step securely uses the existing
+`GRANDRANKER_RSS_URL` secret. It fetches at most 10 MiB over HTTPS, validates RSS 2.0
+XML, and calls the existing importer parser entirely in memory.
+
+Look for Feed access, XML structure, importer parsing, and required-field PASS
+results. Counts cover raw items, eligible items, unique articles, duplicates,
+required fields, full-content fields, and optional author/category/date/image
+availability. Missing required fields fail the run. An empty valid feed produces
+a warning: parsing works, but article compatibility still needs a populated feed.
+A missing full-content field warns that description fallback may be an excerpt.
+Optional-field counts below the article total deserve review but do not fail.
+
+Failures report only fixed diagnostic messages, never exception details, URLs,
+titles, or article bodies. No articles, artifacts, commits, branches, PRs,
+approvals, or deployments are created. This checks feed structure and importer
+compatibility, not clinical accuracy or accessibility of remote image URLs.
+
+The owner has confirmed Pages uses Deploy from a branch, `main`, `/` (root).
+Validation does not change that publishing configuration.
+
 The repository has root static pages, a `main` branch, and `CNAME` containing
-`monti-institute.com`; no previous checked-in build/deploy workflow exists. GitHub
-Pages' actual source branch/folder and permissions could not be verified using
-the unauthenticated Pages API. Confirm Settings > Pages before enabling automation.
-No hosting or domain settings have been changed.
+`monti-institute.com`; no separate checked-in deploy workflow exists. The owner
+confirmed the Pages source above; remote Actions permissions have not been
+independently verified. No hosting or domain settings have been changed.
 
 `.github/workflows/blog-import.yml` checks every six hours and supports manual runs.
 It is disabled unless repository variable `BLOG_IMPORT_ENABLED` equals `true`.
