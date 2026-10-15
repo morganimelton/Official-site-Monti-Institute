@@ -182,7 +182,7 @@ def metadata(article):
 def build(root):
     records = load(root)
     approved = [(r['slug'], r['approved']) for r in records.values()
-                if 'approved' in r and r.get('approved_hash') == digest(r['approved'])]
+                if not r.get('withdrawn') and 'approved' in r and r.get('approved_hash') == digest(r['approved'])]
     approved.sort(key=lambda pair: (pair[1]['published'], pair[0]), reverse=True)
     output = root / 'blog'
     output.mkdir(exist_ok=True)

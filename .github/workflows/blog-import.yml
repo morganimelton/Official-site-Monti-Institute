@@ -4,14 +4,16 @@ on:
     - cron: '23 */6 * * *'
   workflow_dispatch:
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 concurrency:
   group: monti-blog-import
   cancel-in-progress: false
 jobs:
   import:
-    if: vars.BLOG_IMPORT_ENABLED == 'true'
+    if: vars.BLOG_IMPORT_ENABLED == 'true' && vars.BLOG_PUBLICATION_MODE != 'automatic'
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,3 +49,42 @@ jobs:
           git commit -m 'Import Insights articles for medical review'
           git push origin "$branch"
           gh pr create --base "${{ github.event.repository.default_branch }}" --head "$branch" --title 'Insights: articles awaiting medical review' --body 'New or updated RSS content is held in _blog/articles.json. Review the exact pending version, approve with _blog/manage.py approve, and commit the generated blog pages before merging. Merging pending data alone does not publish articles. See _blog/README.md.'
+  automatic:
+    if: vars.BLOG_IMPORT_ENABLED == 'true' && vars.BLOG_PUBLICATION_MODE == 'automatic' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r _blog/requirements.txt
+      - run: python -m unittest discover -s _blog/tests
+      - name: Confirm existing branch publishing configuration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.source.branch == "main" and .source.path == "/" and .build_type == "legacy"' | grep -qx true
+      - name: Stage validated automatic publication
+        env:
+          GRANDRANKER_RSS_URL: ${{ secrets.GRANDRANKER_RSS_URL }}
+          BLOG_IMPORT_ENABLED: ${{ vars.BLOG_IMPORT_ENABLED }}
+          BLOG_PUBLICATION_MODE: ${{ vars.BLOG_PUBLICATION_MODE }}
+        run: python _blog/automatic.py publish
+      - name: Commit only Journal publication files
+        run: |
+          git add -- _blog/articles.json blog/
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish validated GrandRanker articles'
+          git push origin HEAD:main
+      - name: Request existing branch-based Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent

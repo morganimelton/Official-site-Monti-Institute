@@ -1,0 +1,28 @@
+name: Preview GrandRanker articles (no publishing)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r _blog/requirements.txt
+      - run: python -m unittest discover -s _blog/tests
+      - name: Generate the actual feed using the automatic publication pipeline
+        env:
+          GRANDRANKER_RSS_URL: ${{ secrets.GRANDRANKER_RSS_URL }}
+        run: python _blog/automatic.py preview --output "$RUNNER_TEMP/monti-preview"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monti-journal-preview
+          path: ${{ runner.temp }}/monti-preview
+          retention-days: 3
+          if-no-files-found: error

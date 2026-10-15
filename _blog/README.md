@@ -51,7 +51,7 @@ iframes, styles, SVG, unsafe URLs, and embedded forms are not allowed. H1 become
 Reviewers must still check clinical accuracy, image permissions, authorship, and
 linked destinations. Do not treat feed claims as verified medical information.
 
-## Medical review (required)
+## Medical review (default mode)
 
 `_blog/articles.json` retains a pending and optionally an approved version per
 hashed feed identity. The source GUID/link is not persisted. Reimports deduplicate;
@@ -72,9 +72,10 @@ python _blog/manage.py approve --id FULL_RECORD_KEY --hash PENDING_HASH --review
    JSON approval and generated `blog/` files together in the review PR.
 5. A human merges the reviewed PR through the normal site publishing process.
 
-There is no unrestricted auto-approve mode. To withdraw an article, remove its
-`approved` and `approved_hash` fields, rebuild, and review/commit the generated
-deletion. Manual edits to approved text invalidate its hash and withhold it until
+To withdraw an article permanently, use `python _blog/automatic.py withdraw --id RECORD_KEY`
+and review/commit the JSON and generated deletion together. The `withdrawn` flag
+prevents automatic re-publication; do not delete the record itself.
+Manual edits to approved text invalidate its hash and withhold it until
 reapproved. Do not edit generated HTML directly.
 
 `_blog/` is excluded by default Jekyll underscore-directory rules, but a public
@@ -125,7 +126,7 @@ It is disabled unless repository variable `BLOG_IMPORT_ENABLED` equals `true`.
 Configure the feed secret, enable Actions, and allow Actions to create pull requests
 with contents/write and pull-requests/write permissions. The workflow imports pending
 content into a new branch and opens a PR. It waits while an existing import PR is
-open, avoiding competing reviews. There is no automatic merge or deployment step.
+open, avoiding competing reviews. In default review mode there is no automatic merge or deployment step.
 Approved versions are published through the existing process after human review.
 
 GitHub documents that commits made with `GITHUB_TOKEN` do not trigger branch-based
@@ -139,3 +140,61 @@ reviewer's name/workflow, and confirmation of GitHub Pages source and Actions pe
 The sample must include full content, author, category, and image fields so any
 GrandRanker-specific namespaces can be verified. No connection token belongs in chat
 or the repository. Store private credentials directly in GitHub Secrets.
+
+## Optional automatic publication (disabled until explicitly enabled)
+
+No repository variables or remote settings are changed by these files.
+Two variables are required: `BLOG_IMPORT_ENABLED=true` and
+`BLOG_PUBLICATION_MODE=automatic`. Any other publication mode keeps the existing
+review-PR workflow. Imports run at 00:23, 06:23, 12:23 and 18:23 UTC, best-effort.
+
+The automatic job validates the configured secret feed, stages sanitized content
+and HTML in a temporary copy, and promotes versions without individual review.
+The reviewer field explicitly says this is automatic publication, not clinical
+review. Previous approved versions are retained in each record's `history`.
+Stable identities deduplicate entries and retain URLs; articles missing from the
+feed remain published. Malformed or empty feeds stop before publication files
+change. Validation is structural, not a guarantee of medical accuracy or complete
+article text: a description fallback may be an excerpt.
+
+Only `_blog/articles.json` and generated `blog/` files are committed to `main`.
+The job has `contents: write` and `pages: write`, not PR or administration rights.
+It verifies Pages still uses legacy branch publishing from `main` root, then
+requests `POST /repos/{owner}/{repo}/pages/builds` after pushing. This explicit
+request handles the fact that GITHUB_TOKEN pushes do not trigger Pages builds.
+It also retries the build request on unchanged runs, allowing recovery from a
+prior build-request failure. No Pages source, domain, or hosting setting changes.
+API reference: https://docs.github.com/en/rest/pages/pages#request-a-github-pages-build
+
+The remote push/API permissions and actual live build cannot be proven without
+a confirmed live run. Branch rules may block bot pushes; do not weaken protections
+silently. Resolve permissions with the repository owner before enabling automatic
+mode, or retain review mode. No additional token or service is assumed.
+
+### First real article preview
+
+1. Keep `BLOG_IMPORT_ENABLED` false or unset. After these files are reviewed and
+   merged, run the existing read-only validation when the feed has an article.
+2. Run Actions > Preview GrandRanker articles (no publishing) > Run workflow on
+   `main`. It uses the exact staging/generation pipeline used by automatic mode,
+   but has only `contents: read`, never commits or deploys, and ignores enable flags.
+3. Download the `monti-journal-preview` artifact (retained for three days). Extract
+   it locally, run `python3 -m http.server 8153` from that directory, and visit
+   `http://localhost:8153/blog/`. No sample articles are created. An empty feed stops
+   the run without producing an artifact. The artifact contains actual unpublished
+   article content; repository users with artifact access can download it.
+4. Review complete body, formatting, author, date, categories, images, and every
+   destination link on desktop/mobile. Inspect page source for title, description,
+   canonical URL, and Article JSON-LD. Canonicals intentionally target the live domain.
+   Image/link destinations are not automatically fetched by validation.
+5. This tests generation and packaging without live writes. It does not test a real
+   Pages deployment; that requires separate confirmation. After approval to proceed,
+   set `BLOG_PUBLICATION_MODE=automatic`, then `BLOG_IMPORT_ENABLED=true`, and manually
+   run Import Insights for review (the shared workflow name). Check the automatic
+   job, bot commit, build request and Pages deployment for success.
+
+To stop future runs, set `BLOG_IMPORT_ENABLED=false`; cancel any already-running
+import workflow as well. Existing articles remain live. To return to manual review,
+set `BLOG_PUBLICATION_MODE=review`. Resolve stale review PRs before changing modes.
+To remove an article, disable imports first, run the withdrawal command above,
+review/merge its deletion, and then resume only with authorization.
