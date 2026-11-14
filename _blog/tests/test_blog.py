@@ -67,7 +67,7 @@ class BlogTests(unittest.TestCase):
         result = blog.clean_body('<h1>Heading</h1><script>alert(1)</script><iframe src="https://evil.org"></iframe><img src="https://example.org/a.png" onerror="alert(1)"><a href="javascript:alert(1)">bad</a><a href="https://example.org">good</a><svg onload="alert(1)"></svg>')
         for unsafe in ['<script', '<iframe', 'onerror', 'javascript:', '<svg', '<h1']:
             self.assertNotIn(unsafe, result)
-        self.assertIn('<h2>', result)
+        self.assertIn('<h2 id="journal-heading">', result)
         self.assertIn('alt=""', result)
         self.assertIn('href="https://example.org"', result)
 

@@ -198,3 +198,26 @@ import workflow as well. Existing articles remain live. To return to manual revi
 set `BLOG_PUBLICATION_MODE=review`. Resolve stale review PRs before changing modes.
 To remove an article, disable imports first, run the withdrawal command above,
 review/merge its deletion, and then resume only with authorization.
+
+### Re-review a downloaded preview without feed access
+
+When the private RSS secret is unavailable locally, rebuild a downloaded Actions
+preview into a **new directory outside this repository**:
+
+```sh
+python _blog/rebuild_preview.py --source /path/to/downloaded-preview --output /path/to/new-preview
+```
+
+This uses the current generator and shared CSS/JS, preserves the exported article
+wording and routes, and leaves `_blog/articles.json`, `blog/`, workflows and remote
+settings untouched. It does not fetch RSS or certify original GUIDs, full metadata,
+or fields already stripped by an older sanitizer. Re-run the read-only feed preview
+with the updated generator when fresh feed access is available, before publication.
+
+Article formatting preserves safe heading targets, gives headings unique IDs scoped
+to Journal content, restores stripped TOC links by an unambiguous heading-text match,
+and sends links labeled “Request Appointment” directly to the site's existing
+Boulevard URL. Category display labels are reader-friendly; raw category values stay
+stable for filtering and stored content. These transformations do not rewrite medical
+recommendations. Headings include a scroll offset for the existing fixed header and
+notice. No automatic-publication settings are changed by these fixes.

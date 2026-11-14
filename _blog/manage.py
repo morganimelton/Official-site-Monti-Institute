@@ -10,10 +10,11 @@ import shutil
 import sys
 from datetime import timezone
 from email.utils import parsedate_to_datetime
-from urllib.parse import urlparse, parse_qs, urljoin
+from urllib.parse import urlparse, parse_qs, urljoin, unquote
 from urllib.request import Request, urlopen
 
 import bleach
+import html5lib
 from defusedxml import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,7 +42,9 @@ def clean_body(value):
     value = re.sub(r'<(/?)h1\b', r'<\1h2', value, flags=re.I)
     def attribute(tag, name, val):
         if tag == 'a' and name == 'href':
-            return bool(safe_url(val))
+            return bool(safe_url(val)) or bool(re.fullmatch(r'#[^\s<>]+', val))
+        if tag in {'h2', 'h3', 'h4'} and name == 'id':
+            return bool(re.fullmatch(r'[A-Za-z][A-Za-z0-9_.:-]*', val))
         if tag == 'img' and name == 'src':
             return bool(safe_url(val))
         return (tag == 'img' and name == 'alt') or (tag == 'th' and name == 'scope')
@@ -50,7 +53,58 @@ def clean_body(value):
     result = re.sub(r'<img\b([^>]*)>', lambda m: '<img' + m[1] +
                     ('' if re.search(r'\balt=', m[1]) else ' alt=""') +
                     ' loading="lazy" decoding="async">', result)
-    return result
+    return format_body(result)
+
+
+def format_body(value):
+    """Repair navigation and booking destinations without editing article wording."""
+    tree = html5lib.parseFragment(value, namespaceHTMLElements=False)
+    headings = {}
+    aliases = {}
+    used = set()
+    for node in tree.iter():
+        if node.tag not in {"h2", "h3", "h4"}:
+            continue
+        label = " ".join("".join(node.itertext()).split()).casefold()
+        old = node.get("id", "")
+        base = old or re.sub(r"[^a-z0-9]+", "-", label).strip("-") or "section"
+        if not base.startswith("journal-"):
+            base = "journal-" + base
+        target = base
+        suffix = 2
+        while target in used:
+            target = f"{base}-{suffix}"
+            suffix += 1
+        used.add(target)
+        node.set("id", target)
+        if old:
+            aliases.setdefault(old, target)
+        aliases.setdefault(target, target)
+        headings.setdefault(label, []).append(target)
+    for table in tree.iter("table"):
+        table.set("tabindex", "0")
+        table.set("role", "region")
+        table.set("aria-label", "Article table (scroll horizontally if needed)")
+    for node in tree.iter("a"):
+        label = " ".join("".join(node.itertext()).split()).casefold()
+        href = node.get("href", "")
+        if label == "request appointment":
+            node.set("href", BOOK)
+        elif href.startswith("#") or not href:
+            target = aliases.get(unquote(href[1:])) if href.startswith("#") else None
+            matches = headings.get(label, [])
+            if target is None and len(matches) == 1:
+                target = matches[0]
+            if target:
+                node.set("href", "#" + target)
+    return html5lib.serialize(tree, tree="etree", quote_attr_values="always",
+                             omit_optional_tags=False, alphabetical_attributes=True)
+
+
+def category_label(value):
+    labels = {"how-to": "Practical Guidance", "ultimate-guide": "Comprehensive Guide"}
+    return labels.get(value.casefold(), value.replace("-", " ").replace("_", " ").title()
+                      if "-" in value or "_" in value else value)
 
 
 def plain(value):
@@ -173,7 +227,7 @@ def image_html(article):
 
 
 def metadata(article):
-    category = ' / '.join(article['categories']) or 'Insights'
+    category = ' / '.join(category_label(c) for c in article['categories']) or 'Insights'
     date = article['published']
     stamp = f'<time datetime="{esc(date)}">{esc(date[:10])}</time>' if date else ''
     return f'<div class="blog-meta"><span>{esc(category)}</span>{stamp}</div>'
@@ -204,7 +258,7 @@ def build(root):
         content = f'<article class="blog-article container"><a class="text-link" href="/blog/">Back to Insights &amp; Education</a><header>{metadata(article)}<h1>{esc(article["title"])}</h1>{byline}<p class="blog-deck">{esc(article["description"][:300])}</p></header><figure>{image_html(article)}</figure><div class="blog-prose">{clean_body(article["body"])}</div></article>{cta}'
         schema = {'@context': 'https://schema.org', '@type': 'Article', 'headline': article['title'], 'description': article['description'][:300], 'mainEntityOfPage': SITE + route, 'publisher': {'@type': 'Organization', 'name': 'Monti Institute of Neuro Aesthetics'}}
         if article['author']:
-            schema['author'] = {'@type': 'Person', 'name': article['author']}
+            schema['author'] = {'@type': 'Organization' if article['author'].casefold() == 'editorial team' else 'Person', 'name': article['author']}
         if article['published']:
             schema['datePublished'] = article['published']
         if article['image']:
@@ -215,7 +269,7 @@ def build(root):
     if cards:
         featured = '<section class="blog-feature container" aria-label="Featured article"><p class="eyebrow">Featured perspective</p>' + cards[0] + '</section>'
         categories = sorted({c for _, a in approved for c in a['categories']})
-        filters = '<div class="blog-filters" role="group" aria-label="Filter articles" hidden><button type="button" data-category="" aria-pressed="true">All insights</button>' + ''.join(f'<button type="button" data-category="{esc(c)}" aria-pressed="false">{esc(c)}</button>' for c in categories) + '</div>' if categories else ''
+        filters = '<div class="blog-filters" role="group" aria-label="Filter articles" hidden><button type="button" data-category="" aria-pressed="true">All insights</button>' + ''.join(f'<button type="button" data-category="{esc(c)}" aria-pressed="false">{esc(category_label(c))}</button>' for c in categories) + '</div>' if categories else ''
         grid = '<section class="blog-library container" aria-label="All articles">' + filters + '<p class="blog-count" aria-live="polite"></p><div class="blog-grid">' + ''.join(cards) + '</div></section>'
     else:
         featured = '<section class="blog-welcome container"><img src="/assets/images/about-gallery-waiting-room.jpg" alt="Monti Institute waiting room with leather seating and greenery"><div><p class="eyebrow">An introduction to Monti</p><h2>Thoughtful care.<br>Informed perspectives.</h2><p>Our journal is coming soon. In the meantime, explore the care available at Monti Institute.</p><a class="text-link" href="/care.html">Explore our care</a></div></section>'

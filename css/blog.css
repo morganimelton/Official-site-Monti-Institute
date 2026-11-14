@@ -38,11 +38,12 @@
 .blog-prose p, .blog-prose li { color: var(--monti-text); }
 .blog-prose h2 { font-size: 34px; margin-top: 48px; }
 .blog-prose h3 { font-size: 27px; margin-top: 32px; }
+.blog-prose h2, .blog-prose h3, .blog-prose h4 { scroll-margin-top: calc(var(--header-height) + var(--site-notice-height, 0px) + 24px); }
 .blog-prose a { text-decoration: underline; text-underline-offset: 3px; }
 .blog-prose img { max-width: 100%; height: auto; }
 .blog-prose blockquote { border-left: 2px solid var(--monti-gold); padding-left: 24px; }
 .blog-prose table, .blog-prose pre { display: block; max-width: 100%; overflow-x: auto; }
-.blog-prose th, .blog-prose td { padding: 10px; border-bottom: 1px solid var(--monti-line); }
+.blog-prose th, .blog-prose td { min-width: 140px; overflow-wrap: normal; padding: 10px; border-bottom: 1px solid var(--monti-line); }
 .blog-page [hidden] { display: none !important; }
 @media (max-width: 1024px) {
   .blog-intro h1 { font-size: 60px; }
