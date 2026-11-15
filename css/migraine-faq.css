@@ -1,5 +1,18 @@
+.migraine-faq-page {
+  --migraine-faq-header-offset: 105px;
+  --migraine-faq-content-width: 1060px;
+}
+
+@media (max-width: 1280px) {
+  .migraine-faq-page {
+    --migraine-faq-header-offset: 91px;
+  }
+}
+
 .migraine-faq-hero {
-  padding-block: var(--section-space);
+  --migraine-faq-hero-padding: clamp(40px, 5vw, 72px);
+  padding-block: calc(var(--migraine-faq-header-offset) + var(--migraine-faq-hero-padding))
+    var(--migraine-faq-hero-padding);
   background: var(--gradient-navy);
 }
 
@@ -34,17 +47,17 @@
 }
 
 .migraine-faq-reading {
-  width: min(var(--reading-width), calc(100% - 2 * var(--gutter)));
+  width: min(var(--migraine-faq-content-width), calc(100% - 2 * var(--gutter)));
   margin-inline: auto;
-  padding-block: var(--section-space-compact);
+  padding-block: clamp(36px, 4vw, 58px) 0;
 }
 
 .migraine-faq-topic {
-  scroll-margin-top: calc(var(--header-height) + var(--space-xl));
+  scroll-margin-top: calc(var(--migraine-faq-header-offset) + var(--site-notice-height, 0px) + var(--space-md));
 }
 
 .migraine-faq-topic + .migraine-faq-topic {
-  margin-top: var(--section-space-compact);
+  margin-top: clamp(36px, 4vw, 56px);
 }
 
 .migraine-faq-topic h2 {
@@ -56,7 +69,8 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--space-sm);
-  padding-inline: 0;
+  min-height: 48px;
+  padding: 12px 0;
 }
 
 .migraine-faq-page .treatment-row__content {
@@ -68,13 +82,29 @@
 }
 
 .migraine-faq-comparison {
-  padding: clamp(var(--space-md), 5vw, var(--space-xl));
+  padding: clamp(var(--space-md), 3vw, var(--space-lg));
   background: var(--monti-cream);
   border-top: 2px solid var(--monti-gold);
 }
 
 .migraine-faq-next {
-  padding-block: var(--section-space-compact);
+  padding-block: var(--space-sm) clamp(36px, 4vw, 56px);
+}
+
+.migraine-faq-next__inner {
+  max-width: var(--migraine-faq-content-width);
+  border-top: 1px solid var(--monti-line);
+  padding-top: clamp(22px, 3vw, 36px);
+}
+
+.migraine-faq-next h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin-bottom: var(--space-xs);
+}
+
+.migraine-faq-next__inner > p {
+  max-width: var(--reading-width);
+  margin-inline: auto;
 }
 
 .migraine-faq-next .btn {
@@ -82,7 +112,7 @@
 }
 
 .migraine-faq-note {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
   color: var(--monti-muted);
   font-size: 0.875rem;
 }
