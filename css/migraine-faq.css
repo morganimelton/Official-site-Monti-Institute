@@ -1,0 +1,88 @@
+.migraine-faq-hero {
+  padding-block: var(--section-space);
+  background: var(--gradient-navy);
+}
+
+.migraine-faq-hero__inner,
+.migraine-faq-next__inner {
+  max-width: var(--reading-width);
+  text-align: center;
+}
+
+.migraine-faq-hero h1 {
+  max-width: 14ch;
+  margin-inline: auto;
+}
+
+.migraine-faq-hero__inner > p:not(.eyebrow) {
+  max-width: 58ch;
+  margin: var(--space-md) auto 0;
+}
+
+.migraine-faq-jump {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.migraine-faq-jump a {
+  color: var(--monti-gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.migraine-faq-reading {
+  width: min(var(--reading-width), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+  padding-block: var(--section-space-compact);
+}
+
+.migraine-faq-topic {
+  scroll-margin-top: calc(var(--header-height) + var(--space-xl));
+}
+
+.migraine-faq-topic + .migraine-faq-topic {
+  margin-top: var(--section-space-compact);
+}
+
+.migraine-faq-topic h2 {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  margin-bottom: var(--space-md);
+}
+
+.migraine-faq-page .treatment-row__trigger {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-sm);
+  padding-inline: 0;
+}
+
+.migraine-faq-page .treatment-row__content {
+  padding-inline: 0;
+}
+
+.migraine-faq-page .treatment-row__content ul {
+  padding-inline-start: 1.25em;
+}
+
+.migraine-faq-comparison {
+  padding: clamp(var(--space-md), 5vw, var(--space-xl));
+  background: var(--monti-cream);
+  border-top: 2px solid var(--monti-gold);
+}
+
+.migraine-faq-next {
+  padding-block: var(--section-space-compact);
+}
+
+.migraine-faq-next .btn {
+  margin-top: var(--space-sm);
+}
+
+.migraine-faq-note {
+  margin-top: var(--space-lg);
+  color: var(--monti-muted);
+  font-size: 0.875rem;
+}
