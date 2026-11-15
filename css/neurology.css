@@ -10,7 +10,7 @@
 .neurology-hero__inner,
 .neurology-relief__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: center;
   gap: clamp(24px, 5vw, 76px);
 }
@@ -147,8 +147,24 @@
   color: var(--monti-gold-soft);
 }
 
-.neurology-access .btn {
-  margin-top: var(--space-sm);
+.neurology-hero .eyebrow,
+.neurology-hero .neurology-inline-link {
+  color: var(--monti-gold-soft);
+}
+
+.neurology-book-button {
+  justify-self: start;
+  border-color: var(--monti-gold);
+  background: linear-gradient(135deg, var(--monti-gold-soft), var(--monti-gold));
+  color: var(--monti-midnight);
+}
+
+.neurology-questionnaire:disabled {
+  border-color: var(--monti-line-dark);
+  background: transparent;
+  color: var(--monti-text-on-dark);
+  cursor: default;
+  white-space: normal;
 }
 
 @media (max-width: 1280px) {
