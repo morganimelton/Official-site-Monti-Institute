@@ -170,7 +170,7 @@ Footer:
 - `providers.html`
   - Purpose: provider profiles and credentials.
   - CSS: `css/pages.css`, `css/providers.css`.
-  - Sections: editorial hero with provider portrait collage, provider directory, final CTA.
+  - Sections: text-only hero, provider directory, final CTA.
   - Provider section anchors:
     - `#provider-ryan-monti`
     - `#provider-zack-ballingham`
@@ -178,8 +178,7 @@ Footer:
     - `#provider-morgan-melton`
     - `#provider-megan-phares`
     - `#provider-addison-jensen`
-    - `#provider-ty-petty`
-    - `#provider-sydney-stansell`
+    - `#provider-kristy-farson`
     - `#provider-paul-leason`
   - Do not invent or modify provider credentials/bios unless explicitly asked.
 
