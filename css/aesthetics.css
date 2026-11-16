@@ -135,28 +135,23 @@
   color: var(--monti-midnight);
 }
 
-.aesthetics-faq {
-  padding-block: clamp(24px, 3vw, 40px);
-  border-top: 1px solid var(--monti-line);
+.aesthetics-close {
+  border-top: 1px solid var(--monti-line-dark);
 }
 
-.aesthetics-faq__action {
+.aesthetics-close__actions {
   display: grid;
   justify-items: start;
-  gap: var(--space-2xs);
+  gap: var(--space-xs);
 }
 
-.aesthetics-faq__button:disabled {
-  max-width: 100%;
-  white-space: normal;
-  border-color: var(--monti-line);
-  color: var(--monti-navy);
-  background: transparent;
-  cursor: default;
+.aesthetics-close__faq {
+  font-size: 0.9rem;
 }
 
-.aesthetics-faq__action small {
-  color: var(--monti-muted);
+.aesthetics-close__faq span {
+  margin-inline-start: var(--space-2xs);
+  color: var(--monti-gold-soft);
 }
 
 @media (max-width: 1280px) {
