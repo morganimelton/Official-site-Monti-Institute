@@ -59,15 +59,23 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin-top: var(--space-md);
-  border: 1px solid var(--monti-line-dark);
+  border: 1px solid var(--monti-line);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--monti-line-dark);
+  background: var(--monti-line);
 }
 
 .aesthetics-care-card {
   padding: clamp(16px, 2.5vw, 28px);
-  background: var(--monti-navy);
+  background: var(--monti-cream);
+}
+
+.aesthetics-treatments .aesthetics-care-card h3 {
+  color: var(--monti-navy);
+}
+
+.aesthetics-treatments .aesthetics-care-card p {
+  color: var(--monti-text);
 }
 
 .aesthetics-care-card p,
