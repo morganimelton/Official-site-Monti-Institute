@@ -4,6 +4,7 @@
 }
 
 .aesthetics-hero {
+  background: radial-gradient(ellipse at 18% 30%, var(--monti-ivory), transparent 66%), var(--monti-cream);
   padding-block: calc(var(--aesthetics-header-offset) + clamp(28px, 4vw, 56px)) clamp(28px, 4vw, 56px);
 }
 
@@ -11,7 +12,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: center;
-  gap: clamp(24px, 5vw, 76px);
+  gap: clamp(20px, 3.5vw, 54px);
 }
 
 .aesthetics-hero__copy {
@@ -26,7 +27,41 @@
   text-wrap: balance;
 }
 
-.aesthetics-hero__copy > p,
+.aesthetics-hero__copy > p:not(.eyebrow) {
+  max-width: 49ch;
+  color: var(--monti-charcoal);
+}
+
+.aesthetics-hero__copy .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--monti-gold);
+}
+
+.aesthetics-hero__copy .eyebrow::after {
+  content: "";
+  width: 2.25rem;
+  border-top: 1px solid currentColor;
+}
+
+.aesthetics-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.aesthetics-hero__treatment-link {
+  color: var(--monti-navy);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+#aesthetic-treatments {
+  scroll-margin-top: calc(var(--aesthetics-header-offset) + var(--site-notice-height, 0px) + var(--space-xs));
+}
+
 .aesthetics-section h2 + p {
   max-width: 60ch;
 }
@@ -36,6 +71,7 @@
   border: 1px solid var(--monti-line);
   border-radius: var(--radius-md);
   aspect-ratio: 3 / 2;
+  box-shadow: var(--shadow-soft);
 }
 
 .aesthetics-hero__media img {
