@@ -5,6 +5,8 @@ const mobileLinks = document.querySelectorAll(".mobile-nav a");
 const careMenuRoot = document.querySelector("[data-care-menu-root]");
 const careMenuTrigger = document.querySelector("[data-care-menu-trigger]");
 const mobileNavQuery = window.matchMedia("(max-width: 767px)");
+const careMenuCloseDelay = 350;
+let careMenuCloseTimer;
 
 function setScrolledState() {
   header?.classList.toggle("is-scrolled", window.scrollY > 16);
@@ -23,6 +25,7 @@ function toggleMenu() {
 }
 
 function setCareMenu(open) {
+  window.clearTimeout(careMenuCloseTimer);
   if (open) careMenuRoot?.classList.remove("is-menu-suppressed");
   careMenuRoot?.classList.toggle("is-menu-open", open);
   careMenuTrigger?.setAttribute("aria-expanded", String(open));
@@ -43,7 +46,8 @@ careMenuRoot?.addEventListener("pointerenter", () => {
 careMenuRoot?.addEventListener("pointerleave", () => {
   if (!mobileNavQuery.matches) {
     careMenuRoot.classList.remove("is-menu-suppressed");
-    setCareMenu(false);
+    // Give the pointer time to cross the gap between the trigger and panel.
+    careMenuCloseTimer = window.setTimeout(() => setCareMenu(false), careMenuCloseDelay);
   }
 });
 
