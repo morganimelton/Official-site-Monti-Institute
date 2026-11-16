@@ -8,12 +8,40 @@
   padding-block: calc(var(--service-header-offset) + var(--service-section-space)) var(--service-section-space);
 }
 
-.skin-hero,
-.body-hero {
-  background: radial-gradient(ellipse at 18% 30%, var(--monti-ivory), transparent 66%), var(--monti-cream);
+.infusion-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(420px, 46vw, 650px);
+  display: grid;
+  align-items: center;
 }
 
-:is(.skin-hero__inner, .infusion-hero__inner, .skin-support__layout, .massage-therapy__inner) {
+.infusion-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(2, 11, 22, 0.96), rgba(7, 26, 51, 0.85) 38%, rgba(7, 26, 51, 0.18) 78%);
+}
+
+.infusion-hero .infusion-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+}
+
+.infusion-hero__media img {
+  object-position: 52% center;
+}
+
+.infusion-hero__content {
+  max-width: 45rem;
+}
+
+:is(.skin-hero__inner, .skin-support__layout, .massage-therapy__inner) {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: center;
@@ -36,8 +64,7 @@
   max-width: 55ch;
 }
 
-.infusion-hero .eyebrow,
-.infusion-hero .service-jump {
+:is(.skin-hero, .body-hero, .infusion-hero) :is(.eyebrow, .service-jump) {
   color: var(--monti-gold-soft);
 }
 
@@ -256,7 +283,11 @@
 }
 
 @media (max-width: 650px) {
-  :is(.skin-hero__inner, .infusion-hero__inner, .skin-support__layout, .massage-therapy__inner,
+  .infusion-hero::before {
+    background: linear-gradient(90deg, rgba(2, 11, 22, 0.94), rgba(7, 26, 51, 0.72));
+  }
+
+  :is(.skin-hero__inner, .skin-support__layout, .massage-therapy__inner,
       .service-card-grid, .skin-imaging__items, .body-steps, .support-board) {
     grid-template-columns: minmax(0, 1fr);
   }
