@@ -1,0 +1,40 @@
+.aesthetics-faq-page .migraine-faq-hero__inner {
+  max-width: var(--migraine-faq-content-width);
+}
+
+.aesthetics-faq-intro,
+.aesthetics-faq-prose {
+  max-width: 72ch;
+  margin-bottom: var(--space-lg);
+}
+
+.aesthetics-faq-intro p + p,
+.aesthetics-faq-prose p + p {
+  margin-top: var(--space-xs);
+}
+
+.aesthetics-faq-subheading {
+  margin-block: var(--space-md) var(--space-xs);
+}
+
+.aesthetics-faq-page .treatment-accordion + .aesthetics-faq-subheading {
+  margin-top: var(--space-lg);
+}
+
+.aesthetics-faq-page .treatment-row__content {
+  max-width: 76ch;
+}
+
+.aesthetics-faq-page .treatment-row__content ul {
+  margin: 0;
+}
+
+.aesthetics-faq-page .migraine-faq-next {
+  margin-top: var(--space-lg);
+}
+
+.resources-faq-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
