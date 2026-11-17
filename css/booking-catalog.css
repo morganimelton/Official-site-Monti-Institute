@@ -60,3 +60,15 @@
 .booking-catalog.section--navy .booking-catalog__content p {
   color: var(--monti-text);
 }
+
+.service-booking-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  min-height: 44px;
+  color: var(--monti-navy);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
